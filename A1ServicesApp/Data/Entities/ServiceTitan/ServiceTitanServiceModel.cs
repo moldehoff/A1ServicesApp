@@ -30,6 +30,4 @@ namespace A1ServicesApp.Data.Entities.ServiceTitan
         public ICollection<ServiceTitanVideoModel> Videos { get; set; } = new List<ServiceTitanVideoModel>();
         public ICollection<ServiceTitanServiceMaterialModel> Materials { get; set; } = new List<ServiceTitanServiceMaterialModel>();
     }
-
-
 }
