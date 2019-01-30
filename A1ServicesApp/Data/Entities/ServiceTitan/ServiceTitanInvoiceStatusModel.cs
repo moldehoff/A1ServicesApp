@@ -11,6 +11,6 @@ namespace A1ServicesApp.Data.Entities.ServiceTitan
         public int Id { get; set; }
         public int? Value { get; set; }
         public string Name { get; set; }
-        public DateTime DepositedOn { get; set; }
+        public string DepositedOn { get; set; }
     }
 }

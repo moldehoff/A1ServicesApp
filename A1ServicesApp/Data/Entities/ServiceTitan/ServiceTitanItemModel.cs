@@ -15,13 +15,13 @@ namespace A1ServicesApp.Data.Entities.ServiceTitan
         public string SalesType { get; set; }
         public string Description { get; set; }
         public string MembershipTypeId { get; set; }
-        public int? Qty { get; set; }
+        public float? Qty { get; set; }
         public double? UnitRate { get; set; }
         public double? Total { get; set; }
         public double? TotalCost { get; set; }
         public string ItemGroupName { get; set; }
         public int? ItemGroupRootId { get; set; }
-        public DateTime ModifiedOn { get; set; }
+        public string ModifiedOn { get; set; }
         public int? Order { get; set; }
     }
 }

@@ -19,8 +19,8 @@ namespace A1ServicesApp.Data.Entities.ServiceTitan
         public int? BatchNumber { get; set; }
         public string Summary { get; set; }
         public string Number { get; set; }
-        public DateTime InvoicedOn { get; set; }
-        public DateTime CommissionEligibilityDate { get; set; }
+        public string InvoicedOn { get; set; }
+        public string CommissionEligibilityDate { get; set; }
         public double? Tax { get; set; }
         public double? Subtotal { get; set; }
         public double? Total { get; set; }
@@ -29,9 +29,9 @@ namespace A1ServicesApp.Data.Entities.ServiceTitan
         public ICollection<ServiceTitanPaymentModel> Payments { get; set; } = new List<ServiceTitanPaymentModel>();
         public ICollection<ServiceTitanPurchaseOrderModel> PurchaseOrders { get; set; } = new List<ServiceTitanPurchaseOrderModel>();
         public string RoyaltyStatus { get; set; }
-        public DateTime RoyaltyDate { get; set; }
-        public DateTime RoyaltySentOn { get; set; }
+        public string RoyaltyDate { get; set; }
+        public string RoyaltySentOn { get; set; }
         public string RoyaltyMemo { get; set; }
-        public DateTime ModifiedOn { get; set; }
+        public string ModifiedOn { get; set; }
     }
 }

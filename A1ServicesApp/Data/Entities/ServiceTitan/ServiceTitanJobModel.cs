@@ -20,12 +20,12 @@ namespace A1ServicesApp.Data.Entities.ServiceTitan
         public ServiceTitanCustomerModel Customer { get; set; }
         public ServiceTitanLocationModel Location { get; set; }
         public string Summary { get; set; }
-        public DateTime CreatedOn { get; set; }
-        public DateTime ScheduledOn { get; set; }
-        public DateTime CompletedOn { get; set; }
-        public DateTime Start { get; set; }
-        public DateTime End { get; set; }
-        public int? Duration { get; set; }
+        public string CreatedOn { get; set; }
+        public string ScheduledOn { get; set; }
+        public string CompletedOn { get; set; }
+        public string Start { get; set; }
+        public string End { get; set; }
+        public float? Duration { get; set; }
         public bool NoCharge { get; set; }
         public ICollection<ServiceTitanTagModel> Tags { get; set; } = new List<ServiceTitanTagModel>();
         public ICollection<ServiceTitanJobAssignmentModel> JobAssignments { get; set; } = new List<ServiceTitanJobAssignmentModel>();
@@ -33,9 +33,9 @@ namespace A1ServicesApp.Data.Entities.ServiceTitan
         public ServiceTitanInvoiceModel Invoice { get; set; }
         public ServiceTitanCreatedbyModel CreatedBy { get; set; }
         public ServiceTitanCallModel LeadCall { get; set; }
-        public bool ManageEmployeeEmail { get; set; }
-        public bool ManageFollowUpEmail { get; set; }
-        public DateTime ModifiedOn { get; set; }
+        public bool? ManageEmployeeEmail { get; set; }
+        public bool? ManageFollowUpEmail { get; set; }
+        public string ModifiedOn { get; set; }
         public int? RecallForId { get; set; }
         public bool NotificationsEnabled { get; set; }
     }

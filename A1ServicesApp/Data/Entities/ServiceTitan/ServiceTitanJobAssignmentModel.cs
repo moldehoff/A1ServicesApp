@@ -10,7 +10,7 @@ namespace A1ServicesApp.Data.Entities.ServiceTitan
         public string JobNumber { get; set; }
         public ServiceTitanEmployeeModel Technician { get; set; }
         public string Team { get; set; }
-        public int? Split { get; set; }
+        public float? Split { get; set; }
         public double? TotalDrivingHours { get; set; }
         public double? TotalWorkingHours { get; set; }
         public DateTime AssignedOn { get; set; }

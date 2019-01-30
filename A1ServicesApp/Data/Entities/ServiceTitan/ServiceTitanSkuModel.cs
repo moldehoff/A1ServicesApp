@@ -12,7 +12,7 @@ namespace A1ServicesApp.Data.Entities.ServiceTitan
         public string Name { get; set; }
         public string DisplayName { get; set; }
         public string Type { get; set; }
-        public int? SoldHours { get; set; }
+        public float? SoldHours { get; set; }
         public int? GeneralLedgerAccountId { get; set; }
         public string GeneralLedgerAccountName { get; set; }
         public DateTime ModifiedOn { get; set; }

@@ -12,9 +12,8 @@ namespace A1ServicesApp.Data.Entities.ServiceTitan
         public bool? Active { get; set; }
         public ServiceTitanTypeModel Type { get; set; }
         public string Status { get; set; }
-        public DateTime From { get; set; }
-        public DateTime To { get; set; }
+        public string From { get; set; }
+        public string To { get; set; }
         public int? LocationId { get; set; }
-
     }
 }

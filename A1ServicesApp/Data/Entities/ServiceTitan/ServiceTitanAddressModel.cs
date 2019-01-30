@@ -16,7 +16,7 @@ namespace A1ServicesApp.Data.Entities.ServiceTitan
         public string State { get; set; }
         public string Zip { get; set; }
         public string StreetAddress { get; set; }
-        public int? Latitude { get; set; }
-        public int? Longitude { get; set; }
+        public float? Latitude { get; set; }
+        public float? Longitude { get; set; }
     }
 }
