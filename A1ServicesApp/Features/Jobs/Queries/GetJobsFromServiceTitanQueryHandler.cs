@@ -49,10 +49,7 @@ namespace A1ServicesApp.Features.Jobs.Queries
                 page++;
             }
 
-
             return Task.FromResult<ServiceTitanJobsListDto>(result);
-        }
-
-        
+        }     
     }
 }

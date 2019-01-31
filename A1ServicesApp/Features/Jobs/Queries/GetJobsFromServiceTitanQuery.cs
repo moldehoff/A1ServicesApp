@@ -1,6 +1,5 @@
 ﻿using A1ServicesApp.Data.Constants;
 using A1ServicesApp.Data.Constants.ServiceTitanApiFilters;
-using A1ServicesApp.Data.Models;
 using A1ServicesApp.Features.Jobs.Models;
 using MediatR;
 using System;
