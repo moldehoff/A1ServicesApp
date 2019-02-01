@@ -9,7 +9,7 @@ namespace A1ServicesApp.Features.Jobs.Models
 {
     public class ServiceTitanJobsListDto
     {
-        public ServiceTitanEntityCollectionResult<ServiceTitanJobModel> ApiResults { get; set; }
+        public ICollection<ServiceTitanJobModel> ApiResults { get; set; } = new List<ServiceTitanJobModel>();
 
     }
 }

@@ -12,6 +12,13 @@ namespace A1ServicesApp.Features.Jobs.Queries
 {
     public class GetJobsFromServiceTitanQuery : IRequest<ServiceTitanJobsListDto>
     {
+        public const string BaseApiUrl = "HTTPS://api.servicetitan.com/v1/jobs";
+        public string ApiKey { get; set; }
+        public ICollection<IApiFilter> ApiFilters { get; set; } = new List<IApiFilter>();
+
+
+
+
         public GetJobsFromServiceTitanQuery(GetJobsQueryStringModel model)
         {
             ApiKey = model.ApiKey;
@@ -28,9 +35,7 @@ namespace A1ServicesApp.Features.Jobs.Queries
         }
 
 
-        public const string BaseApiUrl = "HTTPS://api.servicetitan.com/v1/jobs";
-        public string ApiKey { get; set; }
-        public ICollection<IApiFilter> ApiFilters { get; set; } = new List<IApiFilter>();
+        
         
         
     }

@@ -18,6 +18,7 @@ namespace A1ServicesApp.Features.Jobs.Queries
         {
             var result = new ServiceTitanJobsListDto();
 
+            var jobs = new List<ServiceTitanJobModel>();
 
             var client = new HttpClient();
             client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -43,11 +44,14 @@ namespace A1ServicesApp.Features.Jobs.Queries
                 var stringTask = client.GetStringAsync(requestUrl).Result;
                 var apiResults = JsonConvert.DeserializeObject<ServiceTitanEntityCollectionResult<ServiceTitanJobModel>>(stringTask);
 
-                result.ApiResults = apiResults;
+                jobs.AddRange(apiResults.Data);
+
+                
 
                 hasMore = apiResults.HasMore;
                 page++;
             }
+            result.ApiResults = jobs;
 
             return Task.FromResult<ServiceTitanJobsListDto>(result);
         }     

@@ -18,8 +18,6 @@
   <ItemGroup>
     <Folder Include="Data\Models\" />
     <Folder Include="Features\JobMaterials\Commands\" />
-    <Folder Include="Features\JobMaterials\Models\" />
-    <Folder Include="Features\JobMaterials\Queries\" />
     <Folder Include="Features\Jobs\Commands\" />
   </ItemGroup>
 
