@@ -10,7 +10,7 @@ namespace A1ServicesApp.Features.JobMaterials.Models
     {
         public int ServiceId { get; set; }
         public string ServiceCode { get; set; }
-        public ICollection<MaterialModel> Materials { get; set; }
+        public ICollection<JobMaterial> Materials { get; set; }
 
     }
 }

@@ -85,7 +85,7 @@ namespace A1ServicesApp.Features.JobMaterials.Queries
             return Task.FromResult<JobsListDto>(result);
         }
 
-        private List<ServiceToManyMaterialLinkModel> CreateTorsionOverhaulLinks(List<ServiceModel> servicesList, List<MaterialModel> materialsList)
+        private List<ServiceToManyMaterialLinkModel> CreateTorsionOverhaulLinks(List<JobService> servicesList, List<JobMaterial> materialsList)
         {
             var maxLifeSprings = materialsList.Where(m => m.Code.StartsWith("STM"));
             var highCycleSprings = materialsList.Where(m => m.Code.StartsWith("STH"));
@@ -184,7 +184,7 @@ namespace A1ServicesApp.Features.JobMaterials.Queries
             return result;
         }
 
-        private List<MaterialModel> ProcessMaterialsFile(string path)
+        private List<JobMaterial> ProcessMaterialsFile(string path)
         {
             var result = File.ReadAllLines(path)
                 .Skip(1)
@@ -195,14 +195,14 @@ namespace A1ServicesApp.Features.JobMaterials.Queries
             return result;
         }
 
-        private MaterialModel TransformToMaterial(string line)
+        private JobMaterial TransformToMaterial(string line)
         {
             var columns = line.Split(',');
 
             int parsedCatId;
             int.TryParse(columns[0], out parsedCatId);
 
-            return new MaterialModel
+            return new JobMaterial
             {
                 //CategoryId = Convert.ToInt32(columns[0]),
                 //CategoryName = columns[1],
@@ -215,7 +215,7 @@ namespace A1ServicesApp.Features.JobMaterials.Queries
             };
         }
 
-        private List<ServiceModel> ProcessServicesFile(string path)
+        private List<JobService> ProcessServicesFile(string path)
         {
             var result = File.ReadAllLines(path)
                 .Skip(1)
@@ -226,13 +226,13 @@ namespace A1ServicesApp.Features.JobMaterials.Queries
             return result;
         }
 
-        private ServiceModel TransformToService(string line)
+        private JobService TransformToService(string line)
         {
             var columns = line.Split(',');
             //int parsedCatId;
             //int.TryParse(columns[0], out parsedCatId);
 
-            return new ServiceModel
+            return new JobService
             {
                 //CategoryId = parsedCatId,
                 //CategoryName = columns[1],

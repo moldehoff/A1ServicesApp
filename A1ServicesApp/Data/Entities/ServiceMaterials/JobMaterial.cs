@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace A1ServicesApp.Features.JobMaterials.Models
 {
-    public class MaterialModel
+    public class JobMaterial
     {
         public int Id { get; set; }
         public string Code { get; set; }

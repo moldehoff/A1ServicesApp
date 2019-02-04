@@ -2,7 +2,6 @@ D:\Projects\A1ServicesApp\A1ServicesApp\bin\Debug\netcoreapp2.2\A1ServicesApp.de
 D:\Projects\A1ServicesApp\A1ServicesApp\bin\Debug\netcoreapp2.2\A1ServicesApp.runtimeconfig.json
 D:\Projects\A1ServicesApp\A1ServicesApp\bin\Debug\netcoreapp2.2\A1ServicesApp.runtimeconfig.dev.json
 D:\Projects\A1ServicesApp\A1ServicesApp\bin\Debug\netcoreapp2.2\A1ServicesApp.dll
-D:\Projects\A1ServicesApp\A1ServicesApp\obj\Debug\netcoreapp2.2\A1ServicesApp.csprojAssemblyReference.cache
 D:\Projects\A1ServicesApp\A1ServicesApp\obj\Debug\netcoreapp2.2\A1ServicesApp.csproj.CoreCompileInputs.cache
 D:\Projects\A1ServicesApp\A1ServicesApp\obj\Debug\netcoreapp2.2\A1ServicesApp.RazorAssemblyInfo.cache
 D:\Projects\A1ServicesApp\A1ServicesApp\obj\Debug\netcoreapp2.2\A1ServicesApp.RazorAssemblyInfo.cs
