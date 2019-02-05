@@ -11,3 +11,4 @@ D:\Projects\A1ServicesApp\A1ServicesApp\obj\Debug\netcoreapp2.2\A1ServicesApp.Ra
 D:\Projects\A1ServicesApp\A1ServicesApp\bin\Debug\netcoreapp2.2\A1ServicesApp.pdb
 D:\Projects\A1ServicesApp\A1ServicesApp\obj\Debug\netcoreapp2.2\A1ServicesApp.dll
 D:\Projects\A1ServicesApp\A1ServicesApp\obj\Debug\netcoreapp2.2\A1ServicesApp.pdb
+D:\Projects\A1ServicesApp\A1ServicesApp\obj\Debug\netcoreapp2.2\A1ServicesApp.csprojAssemblyReference.cache

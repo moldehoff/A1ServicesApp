@@ -15,49 +15,61 @@ namespace A1ServicesApp.Data
 
         public static void EnsureSeedData(this A1ServicesAppDbContext ctx)
         {
-            var jobMaterialLinks = ProcessServiceMaterialsLinkFile("D:\\Projects\\A1ServicesApp\\A1ServicesApp\\Features\\JobMaterials\\ServiceMaterialsLinks.csv");
-            var servicesList = ProcessServicesFile("D:\\Projects\\A1ServicesApp\\A1ServicesApp\\Features\\JobMaterials\\ServicesBook.csv");
-            var materialsList = ProcessMaterialsFile("D:\\Projects\\A1ServicesApp\\A1ServicesApp\\Features\\JobMaterials\\MaterialsBook.csv");
+            var jobMaterialLinks = ProcessServiceMaterialsLinkFile("D:\\Projects\\A1ServicesApp\\A1ServicesApp\\Features\\JobServiceMaterialLinks\\ServiceMaterialsLinks.csv");
+            var servicesList = ProcessServicesFile("D:\\Projects\\A1ServicesApp\\A1ServicesApp\\Features\\JobServiceMaterialLinks\\ServicesBook.csv");
+            var materialsList = ProcessMaterialsFile("D:\\Projects\\A1ServicesApp\\A1ServicesApp\\Features\\JobServiceMaterialLinks\\MaterialsBook.csv");
 
             var jobServiceMaterialLinks = new List<JobServiceMaterialLink>();
 
-            if (jobMaterialLinks.Any())
+            if (ctx.JobServiceMaterialLinks.Any())
             {
                 return;
             }
 
             ctx.JobMaterials.AddRange(materialsList);
             ctx.JobServices.AddRange(servicesList);
+            ctx.SaveChanges();
 
-            foreach (var link in jobMaterialLinks)
+            var jobMaterialLinksGroups = jobMaterialLinks.GroupBy(j => j.ServiceId).ToList();
+
+
+
+            foreach (var link in jobMaterialLinksGroups)
             {
-                var service = servicesList.Where(s => s.Id == link.ServiceId).FirstOrDefault();
-                var material = materialsList.Where(m => m.Id == link.MaterialId).FirstOrDefault();
-                var materialList = new List<JobMaterial>();
-                materialList.Add(material);
+                var service = ctx.JobServices.Where(s => s.ServiceId == link.Key).FirstOrDefault();
+
                 var newJobServiceMaterialLink = new JobServiceMaterialLink()
                 {
-                    ServiceId = service.Id,
+                    ServiceId = service.ServiceId,
                     ServiceCode = service.Code,
                     Active = 1,
-                    MaterailLists = new List<MaterialList>()
-                    {
-                        new MaterialList()
-                        {
-                            Type = "All",
-                            Name = link.ServiceCode + " - " + link.MaterialCode,
-                            Materials = materialList
-                        }
-                    }
-
+                    MaterialLists = new List<MaterialList>()
                 };
 
+                foreach (var matList in link)
+                {     
+                    var newMaterialList = new MaterialList()
+                    {
+                        Type = "All",
+                        Name = matList.MaterialCode + " - " + link.Key + " - " + "Links"
+                    };
+
+                    var material = ctx.JobMaterials.Where(j => j.MaterialId == matList.MaterialId).FirstOrDefault();
+                    var materialListItem = new MaterialListItem()
+                    {
+                        JobMaterialId = material.MaterialId,
+                        JobMaterial = material
+                    };
+                    newMaterialList.MaterialListItems.Add(materialListItem);
+
+                    newJobServiceMaterialLink.MaterialLists.Add(newMaterialList);
+                }
 
                 jobServiceMaterialLinks.Add(newJobServiceMaterialLink);
             }
 
             ctx.JobServiceMaterialLinks.AddRange(jobServiceMaterialLinks);
-
+            ctx.SaveChanges();
         }
 
         private static List<JobMaterial> ProcessMaterialsFile(string path)
@@ -82,7 +94,7 @@ namespace A1ServicesApp.Data
             {
                 //CategoryId = Convert.ToInt32(columns[0]),
                 //CategoryName = columns[1],
-                Id = Convert.ToInt32(columns[0]),
+                MaterialId = Convert.ToInt32(columns[0]),
                 Code = columns[1],
                 Name = columns[2],
                 Description = columns[3],
@@ -112,7 +124,7 @@ namespace A1ServicesApp.Data
             {
                 //CategoryId = parsedCatId,
                 //CategoryName = columns[1],
-                Id = Convert.ToInt32(columns[0]),
+                ServiceId = Convert.ToInt32(columns[0]),
                 Code = columns[1],
                 Name = columns[2],
                 Description = columns[3],

@@ -1,12 +1,13 @@
-﻿using System;
+﻿using A1ServicesApp.Data.Entities.ServiceMaterials;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace A1ServicesApp.Data.Entities.ServiceMaterials
+namespace A1ServicesApp.Features.JobMaterials.Models
 {
-    public class JobServiceMaterialLink
+    public class JobServiceMaterialLinkDto
     {
         public int? Id { get; set; }
         public int? Active { get; set; }
@@ -15,7 +16,6 @@ namespace A1ServicesApp.Data.Entities.ServiceMaterials
         public int? ServiceId { get; set; }
         public string ServiceCode { get; set; }
 
-        public ICollection<MaterialList> MaterialLists { get; set; } = new List<MaterialList>();
-
+        public ICollection<MaterialList> MaterailLists { get; set; } = new List<MaterialList>();
     }
 }

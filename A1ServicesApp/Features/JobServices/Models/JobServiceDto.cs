@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace A1ServicesApp.Features.JobMaterials.Models
+namespace A1ServicesApp.Features.JobServices.Models
 {
-    public class JobService
+    public class JobServiceDto
     {
         public int Id { get; set; }
         public int? CategoryId { get; set; }
@@ -20,6 +20,5 @@ namespace A1ServicesApp.Features.JobMaterials.Models
         public double? AddOnPrice { get; set; }
         public double? AddOnMemberPrice { get; set; }
         public int? Active { get; set; }
-
     }
 }

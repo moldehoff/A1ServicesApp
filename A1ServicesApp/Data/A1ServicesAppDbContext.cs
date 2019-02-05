@@ -19,6 +19,7 @@ namespace A1ServicesApp.Data
         public DbSet<JobServiceMaterialLink> JobServiceMaterialLinks { get; set; }
         public DbSet<JobService> JobServices { get; set; }
         public DbSet<JobMaterial> JobMaterials { get; set; }
+        public DbSet<MaterialListItem> MaterialListItems { get; set; }
 
     }
 }
