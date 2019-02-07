@@ -36,10 +36,11 @@ namespace A1ServicesApp.Features.JobServiceMaterialLinks.Commands
                 var allMaterialListItems = new List<MaterialListItem>();
                 foreach (var m in list.MaterialListItems)
                 {
-                    var material =_ctx.JobMaterials.Where(jm => jm.MaterialId == m.JobMaterialId).FirstOrDefault();
+                    var material =_ctx.JobMaterials.Where(jm => jm.MaterialId == m.MaterialId).FirstOrDefault();
                     var newMaterialListItem = new MaterialListItem()
                     {
-                        JobMaterialId = material.MaterialId
+                        MaterialId = material.MaterialId,
+                        JobMaterialId = material.Id
                     };
                     allMaterialListItems.Add(newMaterialListItem);
                 }

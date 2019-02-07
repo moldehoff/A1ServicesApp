@@ -1,4 +1,5 @@
 ﻿using A1ServicesApp.Data;
+using A1ServicesApp.Data.Entities.ServiceMaterials;
 using A1ServicesApp.Data.Entities.ServiceTitan;
 using A1ServicesApp.Features.JobMaterials.Models;
 using A1ServicesApp.Features.JobServiceMaterialLinks.Models;
@@ -31,9 +32,8 @@ namespace A1ServicesApp.Features.JobMaterials.Queries
             var jobMissingMaterials = new List<ServiceTitanJobModel>();
             var result = new List<FlaggedJobServiceMaterialsDto>();
 
-            var jobServiceMaterialLinks = _ctx.JobServiceMaterialLinks.Include(j=>j.MaterialLists).ThenInclude(list => list.MaterialListItems).ThenInclude(i => i.JobMaterial).ToList();
+            var jobServiceMaterialLinks = _ctx.JobServiceMaterialLinks.Include(js => js.MaterialLists).ThenInclude(ml => ml.MaterialListItems).ToList();
             var jobs = request.Jobs;
-
 
             foreach (var job in jobs)
             {
@@ -44,34 +44,70 @@ namespace A1ServicesApp.Features.JobMaterials.Queries
                 foreach (var item in serviceInvoiceItems)
                 {
 
-                    var link = _ctx.JobServiceMaterialLinks.Include(j => j.MaterialLists).ThenInclude(ml => ml.MaterialListItems).ThenInclude(i=>i.JobMaterial).Where(l => l.ServiceId == item.Sku.Id).FirstOrDefault();
+                    var link = jobServiceMaterialLinks.Where(l => l.ServiceId == item.Sku.Id).FirstOrDefault();
 
                     if (link != null)
                     {
-                        foreach (var ml in link.MaterialLists)
+                        foreach (MaterialList ml in link.MaterialLists.AsQueryable().Include(l=>l.MaterialListItems).ToList())
                         {
-                            var mlItems = ml.MaterialListItems;
-                            if (ml.Type == "Any" && (!materialInvoiceItems.Any(m => mlItems.Any(i => i.JobMaterial.MaterialId == m.Sku.Id))))
+                            var mlItems = ml.MaterialListItems.AsQueryable().Include(i=>i.JobMaterial).ToList();
+
+                            if (ml.Type == "Any") //(!materialInvoiceItems.Any(m => mlItems.Any(i => i.MaterialId == m.Sku.Id))))
                             {
-                                result.Add(new FlaggedJobServiceMaterialsDto()
+                                var anyMatch = false;
+                                foreach (var listItem in ml.MaterialListItems.AsQueryable().Include(m=>m.JobMaterial).ToList())  
                                 {
-                                    FlaggedJob = job,
-                                    FlaggedLink = _mapper.Map<JobServiceMaterialLinkDto>(link),
-                                    FlaggedMaterialList = ml
-                                });
-                                link = null;
-                                goto outer_loop;
+                                    if (materialInvoiceItems.Any(m=>m.Sku.Id == listItem.MaterialId))
+                                    {
+                                        anyMatch = true;
+                                    }
+                                }
+
+                                if (anyMatch == false)
+                                {
+                                    result.Add(new FlaggedJobServiceMaterialsDto()
+                                    {
+                                        FlaggedJob = job,
+                                        FlaggedLink = _mapper.Map<JobServiceMaterialLinkDto>(link),
+                                        FlaggedMaterialList = ml
+                                    });
+                                    link = null;
+                                    goto outer_loop;
+                                }
+
+
+                                //if (!mlItems.Any(m => materialInvoiceItems.Any(i => i.Sku.Id == m.MaterialId)))
+                                //{
+                                //    result.Add(new FlaggedJobServiceMaterialsDto()
+                                //    {
+                                //        FlaggedJob = job,
+                                //        FlaggedLink = _mapper.Map<JobServiceMaterialLinkDto>(link),
+                                //        FlaggedMaterialList = ml
+                                //    });
+                                //    link = null;
+                                //    goto outer_loop;
+                                //}
+
                             }
-                            else if (ml.Type == "All" && !mlItems.Any(m => materialInvoiceItems.Any(mio => mio.Sku.Id == m.JobMaterial.MaterialId)))
+                            else if (ml.Type == "All") //&& !mlItems.Any(m => materialInvoiceItems.Any(mio => mio.Sku.Id == m.MaterialId)))
                             {
-                                result.Add(new FlaggedJobServiceMaterialsDto()
+                                foreach (var listItem in ml.MaterialListItems.AsQueryable().Include(m=>m.JobMaterial).ToList())
                                 {
-                                    FlaggedJob = job,
-                                    FlaggedLink = _mapper.Map<JobServiceMaterialLinkDto>(link),
-                                    FlaggedMaterialList = ml
-                                });
-                                link = null;
-                                goto outer_loop;
+                                    if (!materialInvoiceItems.Any(m=>m.Sku.Id == listItem.MaterialId))
+                                    {
+                                        result.Add(new FlaggedJobServiceMaterialsDto()
+                                        {
+                                            FlaggedJob = job,
+                                            FlaggedLink = _mapper.Map<JobServiceMaterialLinkDto>(link),
+                                            FlaggedMaterialList = ml,
+                                            FlaggedMaterialListItem = listItem
+                                        });
+                                        link = null;
+                                        goto outer_loop;
+                                    }
+
+                                }
+                                
                             }
                         }
 
@@ -84,7 +120,7 @@ namespace A1ServicesApp.Features.JobMaterials.Queries
             }
 
 
-            return Task.FromResult<List<FlaggedJobServiceMaterialsDto>>(result);
+            return Task.FromResult(result);
         }
     }
 }

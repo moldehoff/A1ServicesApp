@@ -4,14 +4,16 @@ using A1ServicesApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace A1ServicesApp.Migrations
 {
     [DbContext(typeof(A1ServicesAppDbContext))]
-    partial class A1ServicesAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190205194259_AddMaterialIdToMaterialListItem")]
+    partial class AddMaterialIdToMaterialListItem
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -65,7 +67,7 @@ namespace A1ServicesApp.Migrations
 
                     b.Property<int>("JobMaterialId");
 
-                    b.Property<int?>("MaterialId");
+                    b.Property<int>("MaterialId");
 
                     b.Property<int>("MaterialListId");
 

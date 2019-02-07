@@ -14,6 +14,7 @@ namespace A1ServicesApp.Features.JobServiceMaterialLinks.Models
         public ServiceTitanJobModel FlaggedJob { get; set; }
         public JobServiceMaterialLinkDto FlaggedLink { get; set; }
         public MaterialList FlaggedMaterialList { get; set; }
+        public MaterialListItem FlaggedMaterialListItem { get; set; }
 
     }
 }

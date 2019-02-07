@@ -11,6 +11,8 @@ namespace A1ServicesApp.Data.Entities.ServiceMaterials
     public class MaterialListItem
     {
         public int Id { get; set; }
+        public int? MaterialId { get; set; }
+
 
         [ForeignKey("JobMaterialId")]
         public JobMaterial JobMaterial { get; set; }

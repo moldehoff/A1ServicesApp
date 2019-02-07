@@ -60,8 +60,8 @@ namespace A1ServicesApp.Features.JobServiceMaterialLinks
             var queryStringModel = new GetJobsQueryStringModel()
             {
                 ApiKey = "0a947558-f14f-4823-b948-e52533c45684",
-                CompletedBefore = new FilterCompletedBefore() { FilterValue = dateToday.AddDays(-1).ToUniversalTime()},
-                CompletedAfter = new FilterCompletedAfter() { FilterValue = dateToday.AddDays(-3).ToUniversalTime()}
+                CompletedBefore = new FilterCompletedBefore() { FilterValue = dateToday.AddDays(-10)},
+                CompletedAfter = new FilterCompletedAfter() { FilterValue = dateToday.AddDays(-15)}
             };
    
             var getJobsFromST = _mediator.Send(new GetJobsFromServiceTitanQuery(queryStringModel)).Result;

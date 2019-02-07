@@ -1,4 +1,5 @@
 ﻿using A1ServicesApp.Data;
+using A1ServicesApp.Data.Entities.ServiceMaterials;
 using A1ServicesApp.Features.JobMaterials.Models;
 using AutoMapper;
 using MediatR;
@@ -12,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace A1ServicesApp.Features.JobMaterials.Queries
 {
-    public class GetAllJobMaterialLinksQueryHandler : IRequestHandler<GetAllJobMaterialLinksQuery, List<JobServiceMaterialLinkDto>>
+    public class GetAllJobMaterialLinksQueryHandler : IRequestHandler<GetAllJobMaterialLinksQuery, List<JobServiceMaterialLink>>
     {
         private IMapper _mapper;
         private A1ServicesAppDbContext _ctx;
@@ -23,13 +24,11 @@ namespace A1ServicesApp.Features.JobMaterials.Queries
             _ctx = ctx;
         }
 
-        public Task<List<JobServiceMaterialLinkDto>> Handle(GetAllJobMaterialLinksQuery request, CancellationToken cancellationToken)
+        public Task<List<JobServiceMaterialLink>> Handle(GetAllJobMaterialLinksQuery request, CancellationToken cancellationToken)
         {
             var links = _ctx.JobServiceMaterialLinks.Include(js => js.MaterialLists).ThenInclude(ml => ml.MaterialListItems).ToList();
 
-            var result = _mapper.Map<List<JobServiceMaterialLinkDto>>(links);
-
-            return Task.FromResult<List<JobServiceMaterialLinkDto>>(result);
+            return Task.FromResult<List<JobServiceMaterialLink>>(links);
         }
     }
 }

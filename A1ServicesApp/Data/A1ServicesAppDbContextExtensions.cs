@@ -57,8 +57,10 @@ namespace A1ServicesApp.Data
                     var material = ctx.JobMaterials.Where(j => j.MaterialId == matList.MaterialId).FirstOrDefault();
                     var materialListItem = new MaterialListItem()
                     {
-                        JobMaterialId = material.MaterialId,
-                        JobMaterial = material
+                        JobMaterialId = material.Id,
+                        JobMaterial = material,
+                        MaterialId = material.MaterialId
+                 
                     };
                     newMaterialList.MaterialListItems.Add(materialListItem);
 
