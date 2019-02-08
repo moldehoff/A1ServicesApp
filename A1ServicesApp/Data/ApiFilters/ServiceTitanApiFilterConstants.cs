@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace A1ServicesApp.Data.Constants
 {
-    public class ServiceTitanApiFilterConstants
+    public static class ServiceTitanApiFilterConstants
     {
-        const string filterAfterCompleted = "filter.AfterCompleted";
-        const string filterBeforeCompleted = "filter.BeforeCompleted";
+        //public const string filterAfterCompleted = "filter.AfterCompleted";
+        //public const string filterBeforeCompleted = "filter.BeforeCompleted";
 
     }
 }

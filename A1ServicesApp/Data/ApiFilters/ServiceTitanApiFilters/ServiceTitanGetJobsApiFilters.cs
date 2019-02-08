@@ -8,7 +8,7 @@ namespace A1ServicesApp.Data.Constants.ServiceTitanApiFilters
 {
     public class FilterCompletedAfter : IApiFilter
     {
-        public string FilterName { get; set; } = "filter.completedAfter";
+        public const string FilterName = "filter.completedAfter";
         public DateTime FilterValue { get; set; }
 
         public string BuildFilterString()
@@ -19,8 +19,30 @@ namespace A1ServicesApp.Data.Constants.ServiceTitanApiFilters
 
     public class FilterCompletedBefore : IApiFilter
     {
-        public string FilterName { get; set; } = "filter.completedBefore";
+        public const string FilterName = "filter.completedBefore";
 
+        public DateTime FilterValue { get; set; }
+
+        public string BuildFilterString()
+        {
+            return FilterName + "=" + FilterValue;
+        }
+    }
+
+    public class FilterStartsAfter : IApiFilter
+    {
+        public const string FilterName = "filter.startsAfter";
+        public DateTime FilterValue { get; set; }
+
+        public string BuildFilterString()
+        {
+            return FilterName + "=" + FilterValue;
+        }
+    }
+
+    public class FilterStartsBefore : IApiFilter
+    {
+        public const string FilterName = "filter.startsBefore";
         public DateTime FilterValue { get; set; }
 
         public string BuildFilterString()
