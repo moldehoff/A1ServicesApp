@@ -57,14 +57,14 @@ namespace A1ServicesApp.Features.JobServiceMaterialLinks
         [HttpGet("findmissinglinks")]
         public IActionResult GetJobsWithMissingJobMaterials()
         {
-            DateTime dateToday = new DateTime(2019, 1, 1, 0, 0, 0);
-            var todaysDate = DateTime.Today;
+            DateTime startDate = new DateTime(2019, 1, 30, 0, 0, 0);
+            var todaysDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day,0,0,0);
 
             var queryStringModel = new GetJobsQueryStringModel()
             {
                 ApiKey = "0a947558-f14f-4823-b948-e52533c45684",
-                CompletedBefore = new FilterCompletedBefore() { FilterValue = dateToday},
-                CompletedAfter = new FilterCompletedAfter() { FilterValue = new DateTime(2018,6,1,0,0,0)}
+                CompletedBefore = new FilterCompletedBefore() { FilterValue = todaysDate},
+                CompletedAfter = new FilterCompletedAfter() { FilterValue = startDate}
             };
    
             var getJobsFromST = _mediator.Send(new GetJobsFromServiceTitanQuery(queryStringModel)).Result;
