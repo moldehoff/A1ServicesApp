@@ -50,7 +50,7 @@ namespace A1ServicesApp.Features.JobMaterials.Queries
                     {
                         foreach (MaterialList ml in link.MaterialLists.AsQueryable().Include(l=>l.MaterialListItems).ToList())
                         {
-                            var mlItems = ml.MaterialListItems.AsQueryable().Include(i=>i.JobMaterial).ToList();
+                            var mlItems = ml.MaterialListItems.AsQueryable().Include(i => i.JobMaterial).ToList();
 
                             if (ml.Type == "Any") //(!materialInvoiceItems.Any(m => mlItems.Any(i => i.MaterialId == m.Sku.Id))))
                             {
@@ -65,11 +65,19 @@ namespace A1ServicesApp.Features.JobMaterials.Queries
 
                                 if (anyMatch == false)
                                 {
+                                    var jobAssignment = job.JobAssignments.AsQueryable().Include(j=>j.Technician).Where(j=>j.Active == true).FirstOrDefault();
+
                                     result.Add(new FlaggedJobServiceMaterialsDto()
                                     {
-                                        FlaggedJob = job,
-                                        FlaggedLink = _mapper.Map<JobServiceMaterialLinkDto>(link),
-                                        FlaggedMaterialList = ml
+                                        FlaggedJobId = Convert.ToInt32(job.JobNumber),
+                                        FlaggedMaterialCode = ml.Name,
+                                        JobCompletedDate = job.CompletedOn,
+                                        TechnicianName = jobAssignment.Technician.Name,
+                                        TechnicianId = jobAssignment.Technician.Id
+                                        //FlaggedJob = job,
+                                        //FlaggedLink = _mapper.Map<JobServiceMaterialLinkDto>(link),
+                                        //FlaggedMaterialList = ml,
+                                        //FlaggedMaterialListItem = listItem
                                     });
                                     link = null;
                                     goto outer_loop;
@@ -95,17 +103,27 @@ namespace A1ServicesApp.Features.JobMaterials.Queries
                                 {
                                     if (!materialInvoiceItems.Any(m=>m.Sku.Id == listItem.MaterialId))
                                     {
+                                        var jobAssignment = job.JobAssignments.AsQueryable().Include(j => j.Technician).Where(j => j.Active == true).FirstOrDefault();
+                                        if (jobAssignment == null)
+                                        {
+                                            continue;
+                                        }
                                         result.Add(new FlaggedJobServiceMaterialsDto()
                                         {
-                                            FlaggedJob = job,
-                                            FlaggedLink = _mapper.Map<JobServiceMaterialLinkDto>(link),
-                                            FlaggedMaterialList = ml,
-                                            FlaggedMaterialListItem = listItem
+                                            FlaggedJobId = Convert.ToInt32(job.JobNumber),
+                                            FlaggedMaterialCode = ml.Name,
+                                            JobCompletedDate = job.CompletedOn,
+                                            TechnicianName = jobAssignment.Technician.Name,
+                                            TechnicianId = jobAssignment.Technician.Id
+                                            //FlaggedJob = job,
+                                            //FlaggedLink = _mapper.Map<JobServiceMaterialLinkDto>(link),
+                                            //FlaggedMaterialList = ml,
+                                            //FlaggedMaterialListItem = listItem
                                         });
                                         link = null;
                                         goto outer_loop;
                                     }
-
+                                    
                                 }
                                 
                             }
@@ -119,8 +137,7 @@ namespace A1ServicesApp.Features.JobMaterials.Queries
                 
             }
 
-
-            return Task.FromResult(result);
+            return Task.FromResult(result.OrderBy(r => r.TechnicianId).ThenBy(r => r.JobCompletedDate).ToList());
         }
     }
 }

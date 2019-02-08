@@ -38,7 +38,7 @@ namespace A1ServicesApp.Features.Jobs.Queries
             while (hasMore)
             {
                 
-                var pageFilter = "&filter.page=" + page;
+                var pageFilter = "&filter.page=" + page + "&filter.pageSize=250";
                 var requestUrl = baseRequestUrl + apiFilters + pageFilter;
 
                 var stringTask = client.GetStringAsync(requestUrl).Result;

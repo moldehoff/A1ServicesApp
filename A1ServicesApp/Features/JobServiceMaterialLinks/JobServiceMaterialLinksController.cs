@@ -1,4 +1,5 @@
 ﻿using A1ServicesApp.Data.Constants.ServiceTitanApiFilters;
+using A1ServicesApp.Features.JobMaterials.Models;
 using A1ServicesApp.Features.JobMaterials.Queries;
 using A1ServicesApp.Features.Jobs.Models;
 using A1ServicesApp.Features.Jobs.Queries;
@@ -6,6 +7,7 @@ using A1ServicesApp.Features.JobServiceMaterialLinks.Commands;
 using A1ServicesApp.Features.JobServiceMaterialLinks.Models;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Query.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,18 +57,57 @@ namespace A1ServicesApp.Features.JobServiceMaterialLinks
         [HttpGet("findmissinglinks")]
         public IActionResult GetJobsWithMissingJobMaterials()
         {
-            DateTime dateToday = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, 0, 0, 0);
+            DateTime dateToday = new DateTime(2019, 1, 1, 0, 0, 0);
+            var todaysDate = DateTime.Today;
 
             var queryStringModel = new GetJobsQueryStringModel()
             {
                 ApiKey = "0a947558-f14f-4823-b948-e52533c45684",
-                CompletedBefore = new FilterCompletedBefore() { FilterValue = dateToday.AddDays(-10)},
-                CompletedAfter = new FilterCompletedAfter() { FilterValue = dateToday.AddDays(-15)}
+                CompletedBefore = new FilterCompletedBefore() { FilterValue = dateToday},
+                CompletedAfter = new FilterCompletedAfter() { FilterValue = new DateTime(2018,6,1,0,0,0)}
             };
    
             var getJobsFromST = _mediator.Send(new GetJobsFromServiceTitanQuery(queryStringModel)).Result;
 
             var result = _mediator.Send(new FindJobsWithMismatchedJobMaterialsQuery() {Jobs = getJobsFromST.ApiResults }).Result;
+
+            var groupedByItem = result.GroupBy(r => r.FlaggedMaterialCode.Count()).ToList();
+            var groups = result.GroupBy(r => r.TechnicianId).ToList();
+
+            var groupedByTechnicianList = new List<TechnicianMissingItemGroupModel>();
+            foreach (var g in groups)
+            {
+                var valueList = g.Select(x => x).ToList();
+                groupedByTechnicianList.Add(new TechnicianMissingItemGroupModel
+                {
+                    TechnicianName = g.Select(x=>x.TechnicianName).FirstOrDefault(),
+                    TechnicianId = g.Key,
+                    TechFlaggedJobCount = valueList.Count,
+
+                    MaterialId = new List<int>(g.Select(x=>x.FlaggedMaterialId).ToList()),
+                    MaterialCode = new List<string>(g.Select(x => x.FlaggedMaterialCode).ToList()),
+                    MaterialLinks = new List<FlaggedJobServiceMaterialsDto>(g)
+ 
+                });
+            }
+
+
+            var groupedByMissingItem = new List<MissingItemGroupModel>();
+
+
+            foreach (var g in groupedByItem)
+            {
+                var valueList = g.Select(x => x).ToList();
+                groupedByMissingItem.Add(new MissingItemGroupModel
+                {
+                    MaterialId = g.Key,
+                    MaterialCode = g.Select(x=>x.FlaggedMaterialCode).FirstOrDefault(),
+                    TechnicianId = new List<int>(g.Select(x=>x.TechnicianId)),
+                    TechnicianName = new List<string>(g.Select(x=>x.TechnicianName)),
+                    MaterialLinks = new List<FlaggedJobServiceMaterialsDto>(g),
+                    MissingMaterialCount = valueList.Count
+                });
+            }
 
             return Ok(result);
         }

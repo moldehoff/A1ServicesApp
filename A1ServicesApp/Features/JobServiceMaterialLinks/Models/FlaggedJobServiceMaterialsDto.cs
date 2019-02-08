@@ -11,10 +11,12 @@ namespace A1ServicesApp.Features.JobServiceMaterialLinks.Models
 {
     public class FlaggedJobServiceMaterialsDto
     {
-        public ServiceTitanJobModel FlaggedJob { get; set; }
-        public JobServiceMaterialLinkDto FlaggedLink { get; set; }
-        public MaterialList FlaggedMaterialList { get; set; }
-        public MaterialListItem FlaggedMaterialListItem { get; set; }
+        public int FlaggedJobId { get; set; }
+        public string FlaggedMaterialCode { get; set; }
+        public int FlaggedMaterialId { get; set; }
+        public string JobCompletedDate { get; set; }
+        public string TechnicianName { get; set; }
+        public int TechnicianId { get; set; }
 
     }
 }
