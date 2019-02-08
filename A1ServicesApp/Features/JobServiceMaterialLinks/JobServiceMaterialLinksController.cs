@@ -52,8 +52,6 @@ namespace A1ServicesApp.Features.JobServiceMaterialLinks
             return Created(result.Id.ToString(), result);
         }
 
-
-
         [HttpGet("findmissinglinks")]
         public IActionResult GetJobsWithMissingJobMaterials()
         {
