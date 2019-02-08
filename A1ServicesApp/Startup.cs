@@ -53,7 +53,7 @@ namespace A1ServicesApp
                 app.UseHsts();
             }
 
-            dbContext.EnsureSeedData();
+            //dbContext.EnsureSeedData();
 
             app.UseHttpsRedirection();
             app.UseMvc();

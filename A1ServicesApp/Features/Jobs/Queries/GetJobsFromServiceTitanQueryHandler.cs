@@ -25,8 +25,8 @@ namespace A1ServicesApp.Features.Jobs.Queries
 
             bool hasMore = true;
             int page = 1;
-
-            string baseRequestUrl = GetJobsFromServiceTitanQuery.BaseApiUrl + "?" + "serviceTitanApiKey=" + request.ApiKey;
+            string apiKey = "0a947558-f14f-4823-b948-e52533c45684";
+            string baseRequestUrl = GetJobsFromServiceTitanQuery.BaseApiUrl + "?" + "serviceTitanApiKey=" + apiKey;
             string apiFilters = "";
 
             foreach (var filter in request.ApiFilters)
@@ -38,7 +38,7 @@ namespace A1ServicesApp.Features.Jobs.Queries
             while (hasMore)
             {
                 
-                var pageFilter = "&filter.page=" + page;
+                var pageFilter = "&filter.page=" + page + "&filter.pageSize=250";
                 var requestUrl = baseRequestUrl + apiFilters + pageFilter;
 
                 var stringTask = client.GetStringAsync(requestUrl).Result;
