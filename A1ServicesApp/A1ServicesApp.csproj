@@ -21,6 +21,8 @@
     <Folder Include="Features\JobMaterials\Queries\" />
     <Folder Include="Features\JobServices\Commands\" />
     <Folder Include="Features\Jobs\Commands\" />
+    <Folder Include="Features\Services\Marketing\Ontraport\Models\" />
+    <Folder Include="Features\Services\Marketing\Ontraport\Queries\" />
   </ItemGroup>
 
 </Project>
