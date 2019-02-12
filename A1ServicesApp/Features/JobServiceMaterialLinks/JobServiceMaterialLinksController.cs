@@ -5,6 +5,7 @@ using A1ServicesApp.Features.Jobs.Models;
 using A1ServicesApp.Features.Jobs.Queries;
 using A1ServicesApp.Features.JobServiceMaterialLinks.Commands;
 using A1ServicesApp.Features.JobServiceMaterialLinks.Models;
+using A1ServicesApp.Features.Services.Airtable.Commands;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Query.Internal;
@@ -60,8 +61,8 @@ namespace A1ServicesApp.Features.JobServiceMaterialLinks
             var queryStringModel = new GetJobsQueryStringModel()
             {
                 ApiKey = "0a947558-f14f-4823-b948-e52533c45684",
-                CompletedBefore = new FilterCompletedBefore() { FilterValue = todaysDate},
-                CompletedAfter = new FilterCompletedAfter() { FilterValue = todaysDate.AddDays(-1)}
+                CompletedBefore = new FilterCompletedBefore() { FilterValue = todaysDate.AddDays(1)},
+                CompletedAfter = new FilterCompletedAfter() { FilterValue = todaysDate.AddDays(0)}
             };
    
             var getJobsFromST = _mediator.Send(new GetJobsFromServiceTitanQuery(queryStringModel)).Result;
@@ -105,6 +106,13 @@ namespace A1ServicesApp.Features.JobServiceMaterialLinks
                     MissingMaterialCount = valueList.Count
                 });
             }
+
+            foreach (var item in result)
+            {
+                _mediator.Send(new AddInvoiceExceptionRecordToAirtableCommand() { flaggedJob = item });
+            }
+
+
 
             return Ok(result);
         }
