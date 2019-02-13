@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <Folder Include="Data\Models\" />
+    <Folder Include="Data\Services\" />
     <Folder Include="Features\JobMaterials\Commands\" />
     <Folder Include="Features\JobMaterials\Queries\" />
     <Folder Include="Features\JobServices\Commands\" />
