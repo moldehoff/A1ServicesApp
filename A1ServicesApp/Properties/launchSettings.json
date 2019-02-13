@@ -14,7 +14,7 @@
       "launchBrowser": true,
       "launchUrl": "api/values",
       "environmentVariables": {
-        "DbConnectionString": "Server=tcp:a1servicesappdbserver.database.windows.net,1433;Initial Catalog=a1servicesappdblive;Persist Security Info=False;User ID=moldehoff;Password=Mo020994!;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;",
+        "SQLAZURECONNSTR_DbConnectionString": "Server=tcp:a1servicesappdbserver.database.windows.net,1433;Initial Catalog=a1servicesappdblive;Persist Security Info=False;User ID=moldehoff;Password=Mo020994!;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;",
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },

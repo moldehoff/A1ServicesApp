@@ -53,7 +53,13 @@ namespace A1ServicesApp.Features.InvoiceValidation
 
         private IMaterialValidator ConvertToAnyMaterialValidators(MaterialList list)
         {
-            var validator = (IMaterialValidator) new AnyMaterialValidator();
+            var validator = (IMaterialValidator) new AnyMaterialValidator()
+            {
+                MaterialLists = new List<MaterialList>()
+                {
+                    new MaterialList(list)
+                }
+            };
 
             return validator;
         }

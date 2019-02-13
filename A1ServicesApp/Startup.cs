@@ -26,17 +26,16 @@ namespace A1ServicesApp
     {
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            _config = configuration;
         }
 
-        public IConfiguration Configuration { get; }
+        public IConfiguration _config { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             
-
-            services.AddDbContext<A1ServicesAppDbContext>(o => o.UseSqlServer("SQLAZURECONNSTR_DbConnectionString"));
+            services.AddDbContext<A1ServicesAppDbContext>(o => o.UseSqlServer(_config.GetConnectionString("DbConnectionString")));
 
             services.AddMediatR();
 

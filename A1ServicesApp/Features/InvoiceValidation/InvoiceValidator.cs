@@ -11,8 +11,6 @@ namespace A1ServicesApp.Features.InvoiceValidation
 {
     public class InvoiceValidator
     {
-        private A1ServicesAppDbContext _ctx;
-
         public ServiceTitanJobModel Job { get; set; }
         public ServiceTitanInvoiceModel Invoice { get; set; }
         public IInvoiceValidationState ValidationState { get; set; }

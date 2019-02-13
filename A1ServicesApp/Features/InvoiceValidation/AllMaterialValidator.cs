@@ -9,11 +9,11 @@ namespace A1ServicesApp.Features.InvoiceValidation
 {
     public class AllMaterialValidator : IMaterialValidator
     {
-        
+        public IValidationState State { get; set; } = new Valid();
 
         public IValidationState RunValidation()
         {
-
+            return new Valid();
         }
     }
 }
