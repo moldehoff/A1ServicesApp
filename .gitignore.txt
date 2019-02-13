@@ -2,3 +2,4 @@
 .vs/*
 A1ServicesApp/obj/
 A1ServicesApp/.vscode/
+A1ServicesApp/Properties/launchSettings.json
