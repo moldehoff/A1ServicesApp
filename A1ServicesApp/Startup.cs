@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.Common;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using A1ServicesApp.Data;
@@ -15,6 +19,7 @@ using Microsoft.Azure.Management.ResourceManager.Fluent;
 using Microsoft.Azure.Management.ResourceManager.Fluent.Authentication;
 using Microsoft.Azure.Services.AppAuthentication;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -34,9 +39,10 @@ namespace A1ServicesApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            
-            services.AddDbContext<A1ServicesAppDbContext>(o => o.UseSqlServer(_config.GetConnectionString("DbConnectionString")));
+            var connectionString =_config["DbConnectionString"];
 
+            services.AddDbContext<A1ServicesAppDbContext>(o => o.UseSqlServer(connectionString));
+            
             services.AddMediatR();
 
             services.AddMvc()
@@ -58,6 +64,7 @@ namespace A1ServicesApp
             else
             {
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseExceptionHandler("/Error");
                 app.UseHsts();
             }
 

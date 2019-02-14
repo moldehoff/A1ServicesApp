@@ -8,4 +8,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA+cCLP9xfWkeUWq61ZILEnAAAAAACAAAAAAAQZgAAAAEAACAAAABWNsPNLtGnDt43LRv6rhRdW/YGRjfoA6evXvvk6sH+XQAAAAAOgAAAAAIAACAAAABefNCtEVrERToXyo8iE0idw26090F0hQUD7LwB9+IHU4AAAAADtOIDlQVAPzh0DOS7B/FcdGjY4dxLhGzDWbxbgFE0cqqyoGpV2TkqUMbqecbP6+LBxXhIUrEBPAvlug5t1oteLU+5uf19LOwxpLEIZdA56qIDUDI4VbkLNaJE8KrUa/bhLtMdvX8yTQ+i/oknAnN04p1I9To7zM8lzj2J5yZjvEAAAACHpEkSOjFfV0hqVoLBhE/X5naSB497VEmwFvH9werNgr1PUH+vuIw12KCw1Jq3U+CvBZokW6aA3Cn6lRGlsZUW</EncryptedPassword>
   </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Server=tcp:a1servicesappdbserver.database.windows.net,1433%3bInitial Catalog=a1servicesappdblive%3bPersist Security Info=False%3bUser ID=moldehoff%3bPassword=Mo020994!%3bMultipleActiveResultSets=True%3bEncrypt=True%3bTrustServerCertificate=False%3bConnection Timeout=30%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
 </Project>
