@@ -9,6 +9,20 @@ namespace A1ServicesApp.Data.Entities.ServiceMaterials
 {
     public class MaterialList
     {
+
+        public MaterialList()
+        {
+
+        }
+
+        public MaterialList(MaterialList list)
+        {
+            Id = list.Id;
+            Type = list.Type;
+            Name = list.Name;
+            MaterialListItems = list.MaterialListItems;
+        }
+
         public int Id { get; set; }
         public string Type { get; set; } // "All" Materials Requuired or "Any" Material Required 
         public string Name { get; set; }

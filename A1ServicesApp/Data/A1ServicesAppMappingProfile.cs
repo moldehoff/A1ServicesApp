@@ -1,4 +1,5 @@
 ﻿using A1ServicesApp.Data.Entities.ServiceMaterials;
+using A1ServicesApp.Data.Entities.ServiceTitan;
 using A1ServicesApp.Features.JobMaterials.Models;
 using A1ServicesApp.Features.JobServices.Models;
 using AutoMapper;
@@ -18,7 +19,7 @@ namespace A1ServicesApp.Data
             CreateMap<JobService, JobServiceDto>().ReverseMap();
             CreateMap<JobMaterial, JobMaterialDto>().ReverseMap();
 
-
+            CreateMap<ServiceTitanPostJobCompleted_ResultModel, ServiceTitanJobModel>();
 
         }
     }
