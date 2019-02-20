@@ -8,6 +8,7 @@ namespace A1ServicesApp.Data.Entities.ServiceTitan
 {
     public class ServiceTitanVideoModel
     {
+        public int? Id { get; set; }
         public string Url { get; set; }
 
     }

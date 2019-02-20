@@ -8,6 +8,7 @@ namespace A1ServicesApp.Data.Entities.ServiceTitan
 {
     public class ServiceTitanImageModel
     {
+        public int? Id { get; set; }
         public string FileName { get; set; }
 
     }

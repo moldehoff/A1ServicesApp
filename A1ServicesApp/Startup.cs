@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.Common;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using A1ServicesApp.Data;
+using A1ServicesApp.Features.InvoiceValidation;
 using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
@@ -19,11 +16,11 @@ using Microsoft.Azure.Management.ResourceManager.Fluent;
 using Microsoft.Azure.Management.ResourceManager.Fluent.Authentication;
 using Microsoft.Azure.Services.AppAuthentication;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
 
 namespace A1ServicesApp
 {
@@ -39,17 +36,19 @@ namespace A1ServicesApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var connectionString =_config["DbConnectionString"];
-
-            services.AddDbContext<A1ServicesAppDbContext>(o => o.UseSqlServer(connectionString));
             
+            services.AddDbContext<A1ServicesAppDbContext>(o => o.UseSqlServer(_config.GetConnectionString("DbConnectionString")));
+
             services.AddMediatR();
 
             services.AddMvc()
                 .AddFeatureFolders()
+                .AddJsonOptions(o=>o.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore)
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddAutoMapper();
+
+            services.AddTransient<TaskMaterialValidatorFactory>();
         }
 
         
@@ -64,7 +63,6 @@ namespace A1ServicesApp
             else
             {
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseExceptionHandler("/Error");
                 app.UseHsts();
             }
 

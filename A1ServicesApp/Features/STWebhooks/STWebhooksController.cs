@@ -1,4 +1,5 @@
 ﻿using A1ServicesApp.Data.Entities.ServiceTitan;
+using A1ServicesApp.Features.Invoices.Commands;
 using A1ServicesApp.Features.JobMaterials.Queries;
 using A1ServicesApp.Features.Services.Airtable.Commands;
 using AutoMapper;
@@ -25,19 +26,25 @@ namespace A1ServicesApp.Features.STWebhooks
         }
 
         [HttpPost("jobcompleted")]
-        public IActionResult ReceiveCompletedServiceTitanJob([FromBody]ServiceTitanPostJobCompleted_ResultModel model)
+        public async Task<IActionResult> ReceiveCompletedServiceTitanJob([FromBody]ServiceTitanPostJobCompleted_ResultModel model)
         {
             var job = _mapper.Map<ServiceTitanJobModel>(model);
 
             var jobList = new List<ServiceTitanJobModel>();
             jobList.Add(job);
-            var resultList = _mediator.Send(new FindJobsWithMismatchedJobMaterialsQuery() { Jobs = jobList }).Result;
+            var resultListFindQuery = await _mediator.Send(new FindJobsWithMismatchedJobMaterialsQuery() { Jobs = jobList });
+            var resultInvoiceValidator = await _mediator.Send(new ValidateJobInvoiceCommand() { Job = job });
 
-            foreach (var result in resultList)
+            foreach (var result in resultListFindQuery)
             {
-                _mediator.Send(new AddInvoiceExceptionRecordToAirtableCommand() { flaggedJob = result });
+                await _mediator.Send(new AddInvoiceExceptionRecordToAirtableCommand() { FlaggedJob = result });
             }
-            
+
+            foreach (var error in resultInvoiceValidator)
+            {
+                await _mediator.Send(new AddInvoiceExceptionRecordToAirtableCommand() { InvoiceError = error });
+            }
+
 
 
             return Ok();

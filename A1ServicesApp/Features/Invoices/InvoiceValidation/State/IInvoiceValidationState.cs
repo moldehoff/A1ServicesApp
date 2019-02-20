@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace A1ServicesApp.Features.InvoiceValidation
 {
-    public class InvalidInvoice : IInvoiceValidationState
+    public interface IInvoiceValidationState
     {
-        
+        IInvoiceValidationState SetInvalid();
+        IInvoiceValidationState SetValid();
     }
 }

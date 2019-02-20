@@ -19,11 +19,24 @@ namespace A1ServicesApp.Features.Services.Airtable.Commands
             var airTableBase = new AirtableBase(airtableApiKey, invoiceExceptionBaseKey);
 
             var airtableFields = new Fields();
-            airtableFields.FieldsCollection.Add("job_id", request.flaggedJob.FlaggedJobId.ToString());
-            airtableFields.FieldsCollection.Add("flagged_material_code", request.flaggedJob.FlaggedMaterialCode);
-            airtableFields.FieldsCollection.Add("technician_name", request.flaggedJob.TechnicianName);
-            airtableFields.FieldsCollection.Add("job_completed_date", DateTime.Parse(request.flaggedJob.JobCompletedDate));
-            airtableFields.FieldsCollection.Add("job_url", "https://go.servicetitan.com/#/Job/Index/" + request.flaggedJob.FlaggedJobId.ToString());
+            if (request.FlaggedJob != null)
+            {
+                airtableFields.FieldsCollection.Add("job_id", request.FlaggedJob.FlaggedJobId.ToString());
+                airtableFields.FieldsCollection.Add("flagged_material_code", request.FlaggedJob.FlaggedMaterialCode);
+                airtableFields.FieldsCollection.Add("technician_name", request.FlaggedJob.TechnicianName);
+                airtableFields.FieldsCollection.Add("job_completed_date", DateTime.Parse(request.FlaggedJob.JobCompletedDate));
+                airtableFields.FieldsCollection.Add("job_url", "https://go.servicetitan.com/#/Job/Index/" + request.FlaggedJob.FlaggedJobId.ToString());
+                airtableFields.FieldsCollection.Add("service_code", request.FlaggedJob.ServiceCode);
+            }
+            if (request.InvoiceError != null)
+            {
+                airtableFields.FieldsCollection.Add("job_id", request.InvoiceError.FlaggedJobId.ToString());
+                airtableFields.FieldsCollection.Add("flagged_material_code", request.InvoiceError.FlaggedMaterialCode);
+                airtableFields.FieldsCollection.Add("technician_name", request.InvoiceError.TechnicianName);
+                airtableFields.FieldsCollection.Add("job_completed_date", DateTime.Parse(request.InvoiceError.JobCompletedDate));
+                airtableFields.FieldsCollection.Add("job_url", "https://go.servicetitan.com/#/Job/Index/" + request.InvoiceError.FlaggedJobId.ToString());
+                airtableFields.FieldsCollection.Add("service_code", request.InvoiceError.ServiceCode);
+            }
 
             var result = airTableBase.CreateRecord("exception_list", airtableFields, true).Result;
 

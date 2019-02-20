@@ -17,6 +17,8 @@ namespace A1ServicesApp.Features.JobServiceMaterialLinks.Models
         public string JobCompletedDate { get; set; }
         public string TechnicianName { get; set; }
         public int TechnicianId { get; set; }
+        public string ServiceCode { get; set; }
+
 
     }
 }

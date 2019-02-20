@@ -37,8 +37,7 @@
           "Microsoft.Azure.Services.AppAuthentication": "1.0.3",
           "Microsoft.Extensions.Configuration.AzureKeyVault": "2.2.0",
           "Microsoft.NETCore.App": "2.2.0",
-          "OdeToCode.AddFeatureFolders": "2.0.3",
-          "System.Data.SqlClient": "4.6.0"
+          "OdeToCode.AddFeatureFolders": "2.0.3"
         },
         "runtime": {
           "A1ServicesApp.dll": {}

@@ -24,7 +24,7 @@ namespace A1ServicesApp.Data.Entities.ServiceMaterials
         }
 
         public int Id { get; set; }
-        public string Type { get; set; } // "All" Materials Requuired or "Any" Material Required 
+        public string Type { get; set; } // "All" Materials Required or "Any" Material Required 
         public string Name { get; set; }
 
         public ICollection<MaterialListItem> MaterialListItems { get; set; } = new List<MaterialListItem>();

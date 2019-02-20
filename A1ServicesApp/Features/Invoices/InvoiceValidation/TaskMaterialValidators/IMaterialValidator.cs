@@ -11,6 +11,6 @@ namespace A1ServicesApp.Features.InvoiceValidation
     public interface IMaterialValidator
     {
         IValidationState State { get; set; }
-        IValidationState RunValidation();
+        void RunValidation(InvoiceValidator invoiceValidator);
     }
 }

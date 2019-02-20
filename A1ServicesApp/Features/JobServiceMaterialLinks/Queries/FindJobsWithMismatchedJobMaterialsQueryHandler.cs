@@ -27,7 +27,7 @@ namespace A1ServicesApp.Features.JobMaterials.Queries
             _ctx = ctx;
         }
 
-        public Task<List<FlaggedJobServiceMaterialsDto>> Handle(FindJobsWithMismatchedJobMaterialsQuery request, CancellationToken cancellationToken)
+        public async Task<List<FlaggedJobServiceMaterialsDto>> Handle(FindJobsWithMismatchedJobMaterialsQuery request, CancellationToken cancellationToken)
         {
             var jobMissingMaterials = new List<ServiceTitanJobModel>();
             var result = new List<FlaggedJobServiceMaterialsDto>();
@@ -137,7 +137,7 @@ namespace A1ServicesApp.Features.JobMaterials.Queries
                 
             }
 
-            return Task.FromResult(result.OrderBy(r => r.TechnicianId).ThenBy(r => r.JobCompletedDate).ToList());
+            return await Task.FromResult(result.OrderBy(r => r.TechnicianId).ThenBy(r => r.JobCompletedDate).ToList());
         }
     }
 }

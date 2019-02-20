@@ -8,6 +8,8 @@ namespace A1ServicesApp.Features.InvoiceValidation
 {
     public class ValidInvoice : IInvoiceValidationState
     {
+        public IInvoiceValidationState SetInvalid() => new InvalidInvoice();
         
+        public IInvoiceValidationState SetValid() => this;
     }
 }

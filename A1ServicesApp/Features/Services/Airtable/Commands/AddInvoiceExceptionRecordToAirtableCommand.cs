@@ -1,4 +1,5 @@
-﻿using A1ServicesApp.Features.JobServiceMaterialLinks.Models;
+﻿using A1ServicesApp.Features.InvoiceValidation;
+using A1ServicesApp.Features.JobServiceMaterialLinks.Models;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace A1ServicesApp.Features.Services.Airtable.Commands
 {
     public class AddInvoiceExceptionRecordToAirtableCommand : IRequest<Object>
     {
-        public FlaggedJobServiceMaterialsDto flaggedJob { get; set; }
-
+        public FlaggedJobServiceMaterialsDto FlaggedJob { get; set; }
+        public InvoiceError InvoiceError { get; set; }
     }
 }

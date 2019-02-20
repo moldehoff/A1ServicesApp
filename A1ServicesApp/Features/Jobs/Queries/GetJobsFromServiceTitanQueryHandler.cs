@@ -10,12 +10,13 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using A1ServicesApp.Data.ExtensionMethods;
+using System.IO;
 
 namespace A1ServicesApp.Features.Jobs.Queries
 {
     public class GetJobsFromServiceTitanQueryHandler : IRequestHandler<GetJobsFromServiceTitanQuery, ServiceTitanJobsListDto>
     {
-        public Task<ServiceTitanJobsListDto> Handle(GetJobsFromServiceTitanQuery request, CancellationToken cancellationToken)
+        public async Task<ServiceTitanJobsListDto> Handle(GetJobsFromServiceTitanQuery request, CancellationToken cancellationToken)
         {
             var result = new ServiceTitanJobsListDto();
 
@@ -38,7 +39,29 @@ namespace A1ServicesApp.Features.Jobs.Queries
 
             while (hasMore)
             {
-                
+                //var pageFilter = "&filter.page=" + page + "&filter.pageSize=250";
+                //var requestUrl = baseRequestUrl + apiFilters + pageFilter;
+
+                //var response = await client.SendAsync(new HttpRequestMessage(HttpMethod.Get, requestUrl),HttpCompletionOption.ResponseHeadersRead);
+
+                //response.EnsureSuccessStatusCode();
+
+                //var stream = await response.Content.ReadAsStreamAsync();
+
+                //StreamReader streamReader = new StreamReader(stream);
+                //JsonReader reader = new JsonTextReader(streamReader);
+                //JsonSerializer serializer = new JsonSerializer();
+                //var apiResults = serializer.Deserialize<ServiceTitanEntityCollectionResult<ServiceTitanJobModel>>(reader);
+
+                //jobs.AddRange(apiResults.Data);
+
+                //hasMore = apiResults.HasMore;
+                //page++;
+
+
+
+
+
                 var pageFilter = "&filter.page=" + page + "&filter.pageSize=250";
                 var requestUrl = baseRequestUrl + apiFilters + pageFilter;
 
@@ -47,14 +70,14 @@ namespace A1ServicesApp.Features.Jobs.Queries
 
                 jobs.AddRange(apiResults.Data);
 
-                
+
 
                 hasMore = apiResults.HasMore;
                 page++;
             }
             result.ApiResults = jobs;
 
-            return Task.FromResult<ServiceTitanJobsListDto>(result);
+            return await Task.FromResult<ServiceTitanJobsListDto>(result);
         }     
     }
 }
