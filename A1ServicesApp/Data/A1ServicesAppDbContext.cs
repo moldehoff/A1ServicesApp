@@ -1,4 +1,5 @@
-﻿using A1ServicesApp.Data.Entities.ServiceMaterials;
+﻿using A1ServicesApp.Data.Entities.BusinessRules;
+using A1ServicesApp.Data.Entities.ServiceMaterials;
 using A1ServicesApp.Data.Entities.ServiceTitan;
 using A1ServicesApp.Features.JobMaterials.Models;
 using Microsoft.EntityFrameworkCore;
@@ -16,6 +17,10 @@ namespace A1ServicesApp.Data
         {
 
         }
+
+        public DbSet<SpecificationRule> SpecificationRules { get; set; }
+
+
 
         public DbSet<JobServiceMaterialLink> JobServiceMaterialLinks { get; set; }
         public DbSet<JobService> JobServices { get; set; }
@@ -48,6 +53,10 @@ namespace A1ServicesApp.Data
         public DbSet<ServiceTitanPurchaseOrderModel> ServiceTitanPurchaseOrderModel { get; set; }
         public DbSet<ServiceTitanPurchaseOrderItemModel> ServiceTitanPurchaseOrderItemModel { get; set; }
 
-
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //base.OnModelCreating(modelBuilder);
+            //modelBuilder.Entity<SmartPlaylist>()
+        }
     }
 }

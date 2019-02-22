@@ -14,7 +14,7 @@ namespace A1ServicesApp.Data.Entities.ServiceTitan
         public ServiceTitanSkuModel Sku { get; set; }
         public string Description { get; set; }
         public string MembershipTypeId { get; set; }
-        public double Quantity { get; set; }
+        public float Qty { get; set; }
         public double UnitRate { get; set; }
         public double Total { get; set; }
         public double TotalCost { get; set; }

@@ -15,5 +15,7 @@ namespace A1ServicesApp.Features.InvoiceValidation
         public string TechnicianName { get; set; } = "";
         public int TechnicianId { get; set; } = 0;
         public string ServiceCode { get; set; } = "";
+        public string JobType { get; set; }
+
     }
 }

@@ -23,7 +23,7 @@ namespace A1ServicesApp.Features.InvoiceValidation
             var _materialLists = MaterialLists;
             var _materialInvoiceItems = invoiceValidator.MaterialItems;
 
-
+            
 
             foreach (var list in _materialLists.AsQueryable().Include(ml => ml.MaterialListItems).ThenInclude(mli => mli.JobMaterial).ToList())
             {

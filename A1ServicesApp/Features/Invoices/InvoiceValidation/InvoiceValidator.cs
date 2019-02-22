@@ -55,6 +55,25 @@ namespace A1ServicesApp.Features.InvoiceValidation
 
         public void RunMaterialValidators()
         {
+            foreach (var item in MaterialItems)
+            {
+                if (item.Qty <= 0)
+                {
+                    SetInvoiceStateInvalid();
+                    InvoiceErrors.Add(new InvoiceError()
+                    {
+                        
+                        FlaggedJobId = Job.Id,
+                        FlaggedMaterialCode = item.Sku.Name,
+                        FlaggedMaterialId = item.Sku.Id,
+                        JobCompletedDate = Job.CompletedOn,
+                        TechnicianName = Job.JobAssignments.Where(j => j.Active == true).Select(ja => ja.Technician.Name).FirstOrDefault()?.ToString(),
+                        TechnicianId = Job.JobAssignments.Any(j => j.Active == true) ? Job.JobAssignments.Where(j => j.Active == true).Select(ja => ja.Technician.Id).FirstOrDefault() : 0,
+                        JobType = Job.Type.Name
+                    });
+                }
+            }
+
             Parallel.ForEach(MaterialValidators, m => m.RunValidation(this));
         }
 
