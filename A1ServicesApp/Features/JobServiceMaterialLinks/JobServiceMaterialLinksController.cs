@@ -109,7 +109,7 @@ namespace A1ServicesApp.Features.JobServiceMaterialLinks
 
             foreach (var item in result)
             {
-                _mediator.Send(new AddInvoiceExceptionRecordToAirtableCommand() { flaggedJob = item });
+                _mediator.Send(new AddInvoiceExceptionRecordToAirtableCommand() { FlaggedJob = item });
             }
 
 

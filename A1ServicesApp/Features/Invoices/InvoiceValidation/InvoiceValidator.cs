@@ -38,8 +38,6 @@ namespace A1ServicesApp.Features.InvoiceValidation
             MaterialItems = jobModel.Invoice.Items.Where(i => i.Active == true).Where(i=>i.Sku.Type == "Material").ToList();
             MaterialValidators = CreateValidators();
 
-            
-
         }
 
         public InvoiceValidator()

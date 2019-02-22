@@ -3,34 +3,21 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
-    <UserSecretsId>68d20829-8f0d-4407-a709-d2ea95201fc1</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <UserSecretsId>a1a5320e-e4ae-4e88-8306-893ff3dc90f2</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Airtable" Version="1.0.0" />
+    <PackageReference Include="Airtable" Version="1.0.2" />
     <PackageReference Include="AutoMapper" Version="8.0.0" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.0.0" />
     <PackageReference Include="MediatR" Version="6.0.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="6.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.Azure.KeyVault" Version="3.0.3" />
-    <PackageReference Include="Microsoft.Azure.Management.KeyVault" Version="2.4.3" />
-    <PackageReference Include="Microsoft.Azure.Management.KeyVault.Fluent" Version="1.19.0" />
-    <PackageReference Include="Microsoft.Azure.Services.AppAuthentication" Version="1.0.3" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.AzureKeyVault" Version="2.2.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.0.2105168" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
     <PackageReference Include="OdeToCode.AddFeatureFolders" Version="2.0.3" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Data\Models\" />
-    <Folder Include="Data\Services\" />
-    <Folder Include="Features\JobMaterials\Commands\" />
-    <Folder Include="Features\JobMaterials\Queries\" />
-    <Folder Include="Features\JobServices\Commands\" />
-    <Folder Include="Features\Jobs\Commands\" />
-    <Folder Include="Features\Services\Marketing\Ontraport\Models\" />
-    <Folder Include="Features\Services\Marketing\Ontraport\Queries\" />
   </ItemGroup>
 
 </Project>

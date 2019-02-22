@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "67a03dc7a1b1c866586467847f319393d6c3bd7b"
+    "signature": "09e1424165a028d5af5b06fa923ce786a22753e0"
   },
   "compilationOptions": {
     "defines": [
@@ -24,19 +24,16 @@
     ".NETCoreApp,Version=v2.2": {
       "A1ServicesApp/1.0.0": {
         "dependencies": {
-          "Airtable": "1.0.0",
+          "Airtable": "1.0.2",
           "AutoMapper": "8.0.0",
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "6.0.0",
           "MediatR": "6.0.0",
           "MediatR.Extensions.Microsoft.DependencyInjection": "6.0.1",
           "Microsoft.AspNetCore.App": "2.2.0",
           "Microsoft.AspNetCore.Razor.Design": "2.2.0",
-          "Microsoft.Azure.KeyVault": "3.0.3",
-          "Microsoft.Azure.Management.KeyVault": "2.4.3",
-          "Microsoft.Azure.Management.KeyVault.Fluent": "1.19.0",
-          "Microsoft.Azure.Services.AppAuthentication": "1.0.3",
-          "Microsoft.Extensions.Configuration.AzureKeyVault": "2.2.0",
           "Microsoft.NETCore.App": "2.2.0",
+          "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.0.2105168",
+          "Newtonsoft.Json": "12.0.1",
           "OdeToCode.AddFeatureFolders": "2.0.3"
         },
         "runtime": {
@@ -46,14 +43,14 @@
           "A1ServicesApp.dll": {}
         }
       },
-      "Airtable/1.0.0": {
+      "Airtable/1.0.2": {
         "dependencies": {
-          "Newtonsoft.Json": "11.0.2"
+          "Newtonsoft.Json": "12.0.1"
         },
         "runtime": {
           "lib/netstandard2.0/AirtableApiClient.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
+            "assemblyVersion": "1.0.2.0",
+            "fileVersion": "1.0.2.0"
           }
         },
         "compile": {
@@ -114,176 +111,6 @@
         },
         "compile": {
           "lib/netstandard2.0/MediatR.Extensions.Microsoft.DependencyInjection.dll": {}
-        }
-      },
-      "Microsoft.Azure.KeyVault/3.0.3": {
-        "dependencies": {
-          "Microsoft.Azure.KeyVault.WebKey": "3.0.3",
-          "Microsoft.Rest.ClientRuntime": "2.3.18",
-          "Microsoft.Rest.ClientRuntime.Azure": "3.3.18",
-          "NETStandard.Library": "2.0.3",
-          "Newtonsoft.Json": "11.0.2",
-          "System.Net.Http": "4.3.0"
-        },
-        "runtime": {
-          "lib/netstandard1.4/Microsoft.Azure.KeyVault.dll": {
-            "assemblyVersion": "3.0.0.0",
-            "fileVersion": "3.0.3.0"
-          }
-        },
-        "compile": {
-          "lib/netstandard1.4/Microsoft.Azure.KeyVault.dll": {}
-        }
-      },
-      "Microsoft.Azure.KeyVault.WebKey/3.0.3": {
-        "dependencies": {
-          "NETStandard.Library": "2.0.3",
-          "Newtonsoft.Json": "11.0.2",
-          "System.Collections": "4.3.0",
-          "System.Collections.Concurrent": "4.3.0",
-          "System.Linq": "4.3.0",
-          "System.Runtime": "4.3.0",
-          "System.Security.Cryptography.Algorithms": "4.3.0",
-          "System.Security.Cryptography.Cng": "4.5.0"
-        },
-        "runtime": {
-          "lib/netstandard1.4/Microsoft.Azure.KeyVault.WebKey.dll": {
-            "assemblyVersion": "3.0.0.0",
-            "fileVersion": "3.0.3.0"
-          }
-        },
-        "compile": {
-          "lib/netstandard1.4/Microsoft.Azure.KeyVault.WebKey.dll": {}
-        }
-      },
-      "Microsoft.Azure.Management.Graph.RBAC.Fluent/1.19.0": {
-        "dependencies": {
-          "Microsoft.Azure.Management.ResourceManager.Fluent": "1.19.0",
-          "Microsoft.Rest.ClientRuntime": "2.3.18",
-          "Microsoft.Rest.ClientRuntime.Azure": "3.3.18",
-          "NETStandard.Library": "2.0.3",
-          "System.Net.Http": "4.3.0"
-        },
-        "runtime": {
-          "lib/netstandard1.4/Microsoft.Azure.Management.Graph.RBAC.Fluent.dll": {
-            "assemblyVersion": "1.0.0.60",
-            "fileVersion": "1.19.0.0"
-          }
-        },
-        "compile": {
-          "lib/netstandard1.4/Microsoft.Azure.Management.Graph.RBAC.Fluent.dll": {}
-        }
-      },
-      "Microsoft.Azure.Management.KeyVault/2.4.3": {
-        "dependencies": {
-          "Microsoft.Rest.ClientRuntime": "2.3.18",
-          "Microsoft.Rest.ClientRuntime.Azure": "3.3.18",
-          "NETStandard.Library": "2.0.3",
-          "Newtonsoft.Json": "11.0.2",
-          "System.Net.Http": "4.3.0"
-        },
-        "runtime": {
-          "lib/netstandard1.4/Microsoft.Azure.Management.KeyVault.dll": {
-            "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.4.3.0"
-          }
-        },
-        "compile": {
-          "lib/netstandard1.4/Microsoft.Azure.Management.KeyVault.dll": {}
-        }
-      },
-      "Microsoft.Azure.Management.KeyVault.Fluent/1.19.0": {
-        "dependencies": {
-          "Microsoft.Azure.KeyVault": "3.0.3",
-          "Microsoft.Azure.Management.Graph.RBAC.Fluent": "1.19.0",
-          "Microsoft.Azure.Management.ResourceManager.Fluent": "1.19.0",
-          "Microsoft.Rest.ClientRuntime": "2.3.18",
-          "Microsoft.Rest.ClientRuntime.Azure": "3.3.18",
-          "NETStandard.Library": "2.0.3",
-          "System.Net.Http": "4.3.0"
-        },
-        "runtime": {
-          "lib/netstandard1.4/Microsoft.Azure.Management.KeyVault.Fluent.dll": {
-            "assemblyVersion": "1.0.0.60",
-            "fileVersion": "1.19.0.0"
-          }
-        },
-        "compile": {
-          "lib/netstandard1.4/Microsoft.Azure.Management.KeyVault.Fluent.dll": {}
-        }
-      },
-      "Microsoft.Azure.Management.ResourceManager.Fluent/1.19.0": {
-        "dependencies": {
-          "Microsoft.Rest.ClientRuntime": "2.3.18",
-          "Microsoft.Rest.ClientRuntime.Azure": "3.3.18",
-          "Microsoft.Rest.ClientRuntime.Azure.Authentication": "2.3.6",
-          "NETStandard.Library": "2.0.3",
-          "System.Net.Http": "4.3.0",
-          "System.Net.NetworkInformation": "4.3.0",
-          "System.Reflection.TypeExtensions": "4.3.0"
-        },
-        "runtime": {
-          "lib/netstandard1.4/Microsoft.Azure.Management.ResourceManager.Fluent.dll": {
-            "assemblyVersion": "1.0.0.60",
-            "fileVersion": "1.19.0.0"
-          }
-        },
-        "compile": {
-          "lib/netstandard1.4/Microsoft.Azure.Management.ResourceManager.Fluent.dll": {}
-        }
-      },
-      "Microsoft.Azure.Services.AppAuthentication/1.0.3": {
-        "dependencies": {
-          "Microsoft.IdentityModel.Clients.ActiveDirectory": "3.14.2",
-          "NETStandard.Library": "2.0.3",
-          "System.Diagnostics.Process": "4.3.0"
-        },
-        "runtime": {
-          "lib/netstandard1.4/Microsoft.Azure.Services.AppAuthentication.dll": {
-            "assemblyVersion": "1.0.3.0",
-            "fileVersion": "1.0.3.0"
-          }
-        },
-        "compile": {
-          "lib/netstandard1.4/Microsoft.Azure.Services.AppAuthentication.dll": {}
-        }
-      },
-      "Microsoft.Extensions.Configuration.AzureKeyVault/2.2.0": {
-        "dependencies": {
-          "Microsoft.Azure.KeyVault": "3.0.3",
-          "Microsoft.Azure.Services.AppAuthentication": "1.0.3",
-          "Microsoft.Extensions.Configuration": "2.2.0",
-          "Microsoft.Extensions.Configuration.FileExtensions": "2.2.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Configuration.AzureKeyVault.dll": {
-            "assemblyVersion": "2.2.0.0",
-            "fileVersion": "2.2.0.18315"
-          }
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.Extensions.Configuration.AzureKeyVault.dll": {}
-        }
-      },
-      "Microsoft.IdentityModel.Clients.ActiveDirectory/3.14.2": {
-        "dependencies": {
-          "NETStandard.Library": "2.0.3",
-          "System.Runtime.Serialization.Json": "4.0.2",
-          "System.Runtime.Serialization.Primitives": "4.3.0"
-        },
-        "runtime": {
-          "lib/netstandard1.3/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll": {
-            "assemblyVersion": "3.14.2.11",
-            "fileVersion": "3.14.40721.918"
-          },
-          "lib/netstandard1.3/Microsoft.IdentityModel.Clients.ActiveDirectory.dll": {
-            "assemblyVersion": "3.14.2.11",
-            "fileVersion": "3.14.40721.918"
-          }
-        },
-        "compile": {
-          "lib/netstandard1.3/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll": {},
-          "lib/netstandard1.3/Microsoft.IdentityModel.Clients.ActiveDirectory.dll": {}
         }
       },
       "Microsoft.NETCore.App/2.2.0": {
@@ -452,65 +279,21 @@
       },
       "Microsoft.NETCore.Platforms/2.2.0": {},
       "Microsoft.NETCore.Targets/2.0.0": {},
-      "Microsoft.Rest.ClientRuntime/2.3.18": {
-        "dependencies": {
-          "NETStandard.Library": "2.0.3",
-          "Newtonsoft.Json": "11.0.2"
-        },
-        "runtime": {
-          "lib/netstandard1.4/Microsoft.Rest.ClientRuntime.dll": {
-            "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.3.18.0"
-          }
-        },
-        "compile": {
-          "lib/netstandard1.4/Microsoft.Rest.ClientRuntime.dll": {}
-        }
-      },
-      "Microsoft.Rest.ClientRuntime.Azure/3.3.18": {
-        "dependencies": {
-          "Microsoft.Rest.ClientRuntime": "2.3.18",
-          "NETStandard.Library": "2.0.3",
-          "Newtonsoft.Json": "11.0.2"
-        },
-        "runtime": {
-          "lib/netstandard1.4/Microsoft.Rest.ClientRuntime.Azure.dll": {
-            "assemblyVersion": "3.0.0.0",
-            "fileVersion": "3.3.18.0"
-          }
-        },
-        "compile": {
-          "lib/netstandard1.4/Microsoft.Rest.ClientRuntime.Azure.dll": {}
-        }
-      },
-      "Microsoft.Rest.ClientRuntime.Azure.Authentication/2.3.6": {
-        "dependencies": {
-          "Microsoft.IdentityModel.Clients.ActiveDirectory": "3.14.2",
-          "Microsoft.IdentityModel.Tokens": "5.3.0",
-          "Microsoft.Rest.ClientRuntime": "2.3.18",
-          "NETStandard.Library": "2.0.3",
-          "Newtonsoft.Json": "11.0.2"
-        },
-        "runtime": {
-          "lib/netstandard1.4/Microsoft.Rest.ClientRuntime.Azure.Authentication.dll": {
-            "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.3.6.0"
-          }
-        },
-        "compile": {
-          "lib/netstandard1.4/Microsoft.Rest.ClientRuntime.Azure.Authentication.dll": {}
-        }
-      },
-      "Microsoft.Win32.Primitives/4.3.0": {
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "2.2.0",
-          "Microsoft.NETCore.Targets": "2.0.0",
-          "System.Runtime": "4.3.0"
-        }
-      },
+      "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.0.2105168": {},
       "NETStandard.Library/2.0.3": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.2.0"
+        }
+      },
+      "Newtonsoft.Json/12.0.1": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.1.22727"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
       "OdeToCode.AddFeatureFolders/2.0.3": {
@@ -528,130 +311,9 @@
           "lib/netstandard2.0/OdeToCode.AddFeatureFolders.dll": {}
         }
       },
-      "System.Diagnostics.Process/4.3.0": {
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "2.2.0",
-          "Microsoft.Win32.Primitives": "4.3.0",
-          "Microsoft.Win32.Registry": "4.5.0",
-          "System.Collections": "4.3.0",
-          "System.Diagnostics.Debug": "4.3.0",
-          "System.Globalization": "4.3.0",
-          "System.IO": "4.3.0",
-          "System.IO.FileSystem": "4.3.0",
-          "System.IO.FileSystem.Primitives": "4.3.0",
-          "System.Resources.ResourceManager": "4.3.0",
-          "System.Runtime": "4.3.0",
-          "System.Runtime.Extensions": "4.3.0",
-          "System.Runtime.Handles": "4.3.0",
-          "System.Runtime.InteropServices": "4.3.0",
-          "System.Text.Encoding": "4.3.0",
-          "System.Text.Encoding.Extensions": "4.3.0",
-          "System.Threading": "4.3.0",
-          "System.Threading.Tasks": "4.3.0",
-          "System.Threading.Thread": "4.3.0",
-          "System.Threading.ThreadPool": "4.3.0",
-          "runtime.native.System": "4.3.0"
-        },
-        "runtimeTargets": {
-          "runtime/linux/lib/_._": {
-            "rid": "linux",
-            "assetType": "runtime"
-          },
-          "runtime/osx/lib/_._": {
-            "rid": "osx",
-            "assetType": "runtime"
-          },
-          "runtime/win/lib/_._": {
-            "rid": "win",
-            "assetType": "runtime"
-          }
-        }
-      },
-      "System.Net.NetworkInformation/4.3.0": {
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "2.2.0",
-          "Microsoft.Win32.Primitives": "4.3.0",
-          "System.Collections": "4.3.0",
-          "System.Diagnostics.Tracing": "4.3.0",
-          "System.Globalization": "4.3.0",
-          "System.IO": "4.3.0",
-          "System.IO.FileSystem": "4.3.0",
-          "System.IO.FileSystem.Primitives": "4.3.0",
-          "System.Linq": "4.3.0",
-          "System.Net.Primitives": "4.3.0",
-          "System.Net.Sockets": "4.3.0",
-          "System.Resources.ResourceManager": "4.3.0",
-          "System.Runtime": "4.3.0",
-          "System.Runtime.Extensions": "4.3.0",
-          "System.Runtime.Handles": "4.3.0",
-          "System.Runtime.InteropServices": "4.3.0",
-          "System.Security.Principal.Windows": "4.5.0",
-          "System.Threading": "4.3.0",
-          "System.Threading.Overlapped": "4.3.0",
-          "System.Threading.Tasks": "4.3.0",
-          "System.Threading.Thread": "4.3.0",
-          "System.Threading.ThreadPool": "4.3.0",
-          "runtime.native.System": "4.3.0"
-        },
-        "runtimeTargets": {
-          "runtime/linux/lib/_._": {
-            "rid": "linux",
-            "assetType": "runtime"
-          },
-          "runtime/osx/lib/_._": {
-            "rid": "osx",
-            "assetType": "runtime"
-          },
-          "runtime/win/lib/_._": {
-            "rid": "win",
-            "assetType": "runtime"
-          }
-        }
-      },
-      "System.Net.Sockets/4.3.0": {
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "2.2.0",
-          "Microsoft.NETCore.Targets": "2.0.0",
-          "System.IO": "4.3.0",
-          "System.Net.Primitives": "4.3.0",
-          "System.Runtime": "4.3.0",
-          "System.Threading.Tasks": "4.3.0"
-        }
-      },
-      "System.Runtime.Serialization.Json/4.0.2": {
-        "dependencies": {
-          "System.IO": "4.3.0",
-          "System.Private.DataContractSerialization": "4.3.0",
-          "System.Runtime": "4.3.0"
-        }
-      },
-      "System.Threading.Overlapped/4.3.0": {
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "2.2.0",
-          "System.Resources.ResourceManager": "4.3.0",
-          "System.Runtime": "4.3.0",
-          "System.Runtime.Handles": "4.3.0"
-        },
-        "runtimeTargets": {
-          "runtime/unix/lib/_._": {
-            "rid": "unix",
-            "assetType": "runtime"
-          },
-          "runtime/win/lib/_._": {
-            "rid": "win",
-            "assetType": "runtime"
-          }
-        }
-      },
-      "System.Threading.ThreadPool/4.3.0": {
-        "dependencies": {
-          "System.Runtime": "4.3.0",
-          "System.Runtime.Handles": "4.3.0"
-        }
-      },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
         "dependencies": {
-          "Newtonsoft.Json": "11.0.2",
+          "Newtonsoft.Json": "12.0.1",
           "Newtonsoft.Json.Bson": "1.0.1"
         },
         "compile": {
@@ -939,7 +601,7 @@
       "Microsoft.AspNetCore.Authentication.OAuth/2.2.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Authentication": "2.2.0",
-          "Newtonsoft.Json": "11.0.2"
+          "Newtonsoft.Json": "12.0.1"
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.OAuth.dll": {}
@@ -1217,7 +879,7 @@
           "Microsoft.AspNetCore.Http.Connections.Common": "1.1.0",
           "Microsoft.AspNetCore.Routing": "2.2.0",
           "Microsoft.AspNetCore.WebSockets": "2.2.0",
-          "Newtonsoft.Json": "11.0.2",
+          "Newtonsoft.Json": "12.0.1",
           "System.Security.Principal.Windows": "4.5.0"
         },
         "compile": {
@@ -1228,7 +890,7 @@
       "Microsoft.AspNetCore.Http.Connections.Common/1.1.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Connections.Abstractions": "2.2.0",
-          "Newtonsoft.Json": "11.0.2",
+          "Newtonsoft.Json": "12.0.1",
           "System.Buffers": "4.5.0"
         },
         "compile": {
@@ -1322,7 +984,7 @@
       "Microsoft.AspNetCore.JsonPatch/2.2.0": {
         "dependencies": {
           "Microsoft.CSharp": "4.5.0",
-          "Newtonsoft.Json": "11.0.2"
+          "Newtonsoft.Json": "12.0.1"
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.AspNetCore.JsonPatch.dll": {}
@@ -1555,7 +1217,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.Hosting.Abstractions": "2.2.0",
           "Microsoft.Extensions.Logging.Console": "2.2.0",
-          "Newtonsoft.Json": "11.0.2"
+          "Newtonsoft.Json": "12.0.1"
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.AspNetCore.NodeServices.dll": {}
@@ -1805,7 +1467,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.Connections.Abstractions": "2.2.0",
           "Microsoft.Extensions.Options": "2.2.0",
-          "Newtonsoft.Json": "11.0.2",
+          "Newtonsoft.Json": "12.0.1",
           "System.Buffers": "4.5.0"
         },
         "compile": {
@@ -1831,7 +1493,7 @@
       "Microsoft.AspNetCore.SignalR.Protocols.Json/1.1.0": {
         "dependencies": {
           "Microsoft.AspNetCore.SignalR.Common": "1.1.0",
-          "Newtonsoft.Json": "11.0.2"
+          "Newtonsoft.Json": "12.0.1"
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Protocols.Json.dll": {}
@@ -2156,7 +1818,7 @@
         "dependencies": {
           "Microsoft.Extensions.Configuration": "2.2.0",
           "Microsoft.Extensions.Configuration.FileExtensions": "2.2.0",
-          "Newtonsoft.Json": "11.0.2"
+          "Newtonsoft.Json": "12.0.1"
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.Extensions.Configuration.Json.dll": {}
@@ -2211,7 +1873,7 @@
       "Microsoft.Extensions.DependencyModel/2.1.0": {
         "dependencies": {
           "Microsoft.DotNet.PlatformAbstractions": "2.1.0",
-          "Newtonsoft.Json": "11.0.2",
+          "Newtonsoft.Json": "12.0.1",
           "System.Diagnostics.Debug": "4.3.0",
           "System.Dynamic.Runtime": "4.3.0",
           "System.Linq": "4.3.0"
@@ -2418,7 +2080,7 @@
       "Microsoft.Extensions.Logging.EventSource/2.2.0": {
         "dependencies": {
           "Microsoft.Extensions.Logging": "2.2.0",
-          "Newtonsoft.Json": "11.0.2"
+          "Newtonsoft.Json": "12.0.1"
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.Extensions.Logging.EventSource.dll": {}
@@ -2498,7 +2160,7 @@
       "Microsoft.IdentityModel.JsonWebTokens/5.3.0": {
         "dependencies": {
           "Microsoft.IdentityModel.Tokens": "5.3.0",
-          "Newtonsoft.Json": "11.0.2"
+          "Newtonsoft.Json": "12.0.1"
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.IdentityModel.JsonWebTokens.dll": {}
@@ -2533,7 +2195,7 @@
       "Microsoft.IdentityModel.Protocols.OpenIdConnect/5.3.0": {
         "dependencies": {
           "Microsoft.IdentityModel.Protocols": "5.3.0",
-          "Newtonsoft.Json": "11.0.2",
+          "Newtonsoft.Json": "12.0.1",
           "System.Dynamic.Runtime": "4.3.0",
           "System.IdentityModel.Tokens.Jwt": "5.3.0"
         },
@@ -2557,7 +2219,7 @@
       "Microsoft.IdentityModel.Tokens/5.3.0": {
         "dependencies": {
           "Microsoft.IdentityModel.Logging": "5.3.0",
-          "Newtonsoft.Json": "11.0.2",
+          "Newtonsoft.Json": "12.0.1",
           "System.Collections": "4.3.0",
           "System.Diagnostics.Tools": "4.3.0",
           "System.Reflection": "4.3.0",
@@ -2616,16 +2278,10 @@
         },
         "compileOnly": true
       },
-      "Newtonsoft.Json/11.0.2": {
-        "compile": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        },
-        "compileOnly": true
-      },
       "Newtonsoft.Json.Bson/1.0.1": {
         "dependencies": {
           "NETStandard.Library": "2.0.3",
-          "Newtonsoft.Json": "11.0.2"
+          "Newtonsoft.Json": "12.0.1"
         },
         "compile": {
           "lib/netstandard1.3/Newtonsoft.Json.Bson.dll": {}
@@ -2933,7 +2589,7 @@
         "dependencies": {
           "Microsoft.IdentityModel.JsonWebTokens": "5.3.0",
           "Microsoft.IdentityModel.Tokens": "5.3.0",
-          "Newtonsoft.Json": "11.0.2"
+          "Newtonsoft.Json": "12.0.1"
         },
         "compile": {
           "lib/netstandard2.0/System.IdentityModel.Tokens.Jwt.dll": {}
@@ -3670,12 +3326,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Airtable/1.0.0": {
+    "Airtable/1.0.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-LsZc3BQ08rWcO2ve3r4/NA8WyMNsMAwbNMwWGTGwXH76E9QmpIKTymFBwOOL+AvASFLuhCrSziJTFvuPiKtVcQ==",
-      "path": "airtable/1.0.0",
-      "hashPath": "airtable.1.0.0.nupkg.sha512"
+      "sha512": "sha512-Yi62BQtBCODPNTtoDa/wlW4i8A2SmYB1V1A2iYw/MsAQXZnV3ePZ59hG4VZyodEiGQ+5mc7zYvd+QkSPkC1eDQ==",
+      "path": "airtable/1.0.2",
+      "hashPath": "airtable.1.0.2.nupkg.sha512"
     },
     "AutoMapper/8.0.0": {
       "type": "package",
@@ -3704,69 +3360,6 @@
       "sha512": "sha512-FXv928QVR3DGzeVvRLprONvwi8SiWTajlW+MQQeCwhmbkbSBbf/fhiqcaeTToat11qQl5WFUab0ymFJou2kibA==",
       "path": "mediatr.extensions.microsoft.dependencyinjection/6.0.1",
       "hashPath": "mediatr.extensions.microsoft.dependencyinjection.6.0.1.nupkg.sha512"
-    },
-    "Microsoft.Azure.KeyVault/3.0.3": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-83dOAA70xwVw4DVwyMob6PjgHNGuBqHr/Z+S1Blh/LFve/Y/WfXlGdqK5cgs4M7CkR2va4UWzz/G8IBg8m3xKA==",
-      "path": "microsoft.azure.keyvault/3.0.3",
-      "hashPath": "microsoft.azure.keyvault.3.0.3.nupkg.sha512"
-    },
-    "Microsoft.Azure.KeyVault.WebKey/3.0.3": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-fESWqsmzR32Oqj+POAn3mtnUDNknR58ARURoy6ehaOOXnHUQ+c7DZH1AgZtYWoNWEYEvT6zKY7a9PKdcMSJb0A==",
-      "path": "microsoft.azure.keyvault.webkey/3.0.3",
-      "hashPath": "microsoft.azure.keyvault.webkey.3.0.3.nupkg.sha512"
-    },
-    "Microsoft.Azure.Management.Graph.RBAC.Fluent/1.19.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-v7pjrpk2eQUzBKz2qvKf6LBKMaQFRPHg4wr9mODKbwjt/aqVMuAoK1lhjwUsOnXzv8iagbo7hX9xjjMbMVJCqA==",
-      "path": "microsoft.azure.management.graph.rbac.fluent/1.19.0",
-      "hashPath": "microsoft.azure.management.graph.rbac.fluent.1.19.0.nupkg.sha512"
-    },
-    "Microsoft.Azure.Management.KeyVault/2.4.3": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-M6KyghXN1v3EBN6jamFlDF2Kx0xp6dEMdcl5p0eFKf9D7qKmjPPswDS5RozDR1kFrSSo2cZsLlTpmH2/5X6+9Q==",
-      "path": "microsoft.azure.management.keyvault/2.4.3",
-      "hashPath": "microsoft.azure.management.keyvault.2.4.3.nupkg.sha512"
-    },
-    "Microsoft.Azure.Management.KeyVault.Fluent/1.19.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-u0o3IpvZEOG08wxdCBGA22bcXsKB5fdJg2Dnu8qAv0ZK12dfd4tWVn2gQbXSddWIkLTIsVrB7hrOKH3I3bVdIg==",
-      "path": "microsoft.azure.management.keyvault.fluent/1.19.0",
-      "hashPath": "microsoft.azure.management.keyvault.fluent.1.19.0.nupkg.sha512"
-    },
-    "Microsoft.Azure.Management.ResourceManager.Fluent/1.19.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-G1UehhQhpbznjFfTzx/dHPASw09JnTa4um0pM5fQAMn30hGkoAucpjhu0fQpNpAFCZdqZSW5JHFQTCJ14VL0Cw==",
-      "path": "microsoft.azure.management.resourcemanager.fluent/1.19.0",
-      "hashPath": "microsoft.azure.management.resourcemanager.fluent.1.19.0.nupkg.sha512"
-    },
-    "Microsoft.Azure.Services.AppAuthentication/1.0.3": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-ywpQaK1klu1IoX4VUf+TBmU4kR71aWNI6O5rEIJU8z28L2xhJhnIm7k2Nf1Zu/PygeuOtt5g0QPCk5+lLltbeQ==",
-      "path": "microsoft.azure.services.appauthentication/1.0.3",
-      "hashPath": "microsoft.azure.services.appauthentication.1.0.3.nupkg.sha512"
-    },
-    "Microsoft.Extensions.Configuration.AzureKeyVault/2.2.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-1qYQfBjt9+3hGzPwLThEo7dmPBEt/e6qcD6WiC3NZAfu0QR/9YIDYWKqshp2BJEmOu6JkH18vsnBt36zhUw8vA==",
-      "path": "microsoft.extensions.configuration.azurekeyvault/2.2.0",
-      "hashPath": "microsoft.extensions.configuration.azurekeyvault.2.2.0.nupkg.sha512"
-    },
-    "Microsoft.IdentityModel.Clients.ActiveDirectory/3.14.2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-KfcWG8h6JV3nyHv5YHlVujMwqH7CEYvCb1oKgwd+oKeXV8EFfYo9+hKvRAxg5Sikm14mVlouzLlm9wikmkncfQ==",
-      "path": "microsoft.identitymodel.clients.activedirectory/3.14.2",
-      "hashPath": "microsoft.identitymodel.clients.activedirectory.3.14.2.nupkg.sha512"
     },
     "Microsoft.NETCore.App/2.2.0": {
       "type": "package",
@@ -3810,33 +3403,12 @@
       "path": "microsoft.netcore.targets/2.0.0",
       "hashPath": "microsoft.netcore.targets.2.0.0.nupkg.sha512"
     },
-    "Microsoft.Rest.ClientRuntime/2.3.18": {
+    "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.0.2105168": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-daE2vz5eNmiUbx8Lm0DArlKfKVtH3IzSteR0N+AJJ7cDgj32LcFudGx9Vm0bFelmiEZ3nO4Y7XTk2nfjUK/uCg==",
-      "path": "microsoft.rest.clientruntime/2.3.18",
-      "hashPath": "microsoft.rest.clientruntime.2.3.18.nupkg.sha512"
-    },
-    "Microsoft.Rest.ClientRuntime.Azure/3.3.18": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-pCtem10PRQYvzRiwJVInsccsqB0NrTjW83NF3zWk1LpN3IS0AneZKq89RyogDT7mRMT1Li/mLY8N8kU6RAiK0g==",
-      "path": "microsoft.rest.clientruntime.azure/3.3.18",
-      "hashPath": "microsoft.rest.clientruntime.azure.3.3.18.nupkg.sha512"
-    },
-    "Microsoft.Rest.ClientRuntime.Azure.Authentication/2.3.6": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-73wYf02cJTyhfLrXcP87AcjtcKvUHAE71uDmup8WO2HxyrsEUQR/mvyDPaGLA9aBXNVHX4M0gtbVQ7mDGDBRyA==",
-      "path": "microsoft.rest.clientruntime.azure.authentication/2.3.6",
-      "hashPath": "microsoft.rest.clientruntime.azure.authentication.2.3.6.nupkg.sha512"
-    },
-    "Microsoft.Win32.Primitives/4.3.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-9ZQKCWxH7Ijp9BfahvL2Zyf1cJIk8XYLF6Yjzr2yi0b2cOut/HQ31qf1ThHAgCc3WiZMdnWcfJCgN82/0UunxA==",
-      "path": "microsoft.win32.primitives/4.3.0",
-      "hashPath": "microsoft.win32.primitives.4.3.0.nupkg.sha512"
+      "sha512": "sha512-OcDidVAHC9shKB0DbF7h2E3Goduf9s5wj4BtcuQrRFnDHNoYAixowwzdmn4FKxWca6KLA5n4kYMhF6SW0L7Vrw==",
+      "path": "microsoft.visualstudio.azure.containers.tools.targets/1.0.2105168",
+      "hashPath": "microsoft.visualstudio.azure.containers.tools.targets.1.0.2105168.nupkg.sha512"
     },
     "NETStandard.Library/2.0.3": {
       "type": "package",
@@ -3845,54 +3417,19 @@
       "path": "netstandard.library/2.0.3",
       "hashPath": "netstandard.library.2.0.3.nupkg.sha512"
     },
+    "Newtonsoft.Json/12.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pBR3wCgYWZGiaZDYP+HHYnalVnPJlpP1q55qvVb+adrDHmFMDc1NAKio61xTwftK3Pw5h7TZJPJEEVMd6ty8rg==",
+      "path": "newtonsoft.json/12.0.1",
+      "hashPath": "newtonsoft.json.12.0.1.nupkg.sha512"
+    },
     "OdeToCode.AddFeatureFolders/2.0.3": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-Z1LH2b/3PUqZ5swAzsNxmsYIX7BnlPljxjd2ExS6i+lZfa2b5feFhX2474kFJTYn2NKA8dAeFdKd3WFQLiS3oA==",
       "path": "odetocode.addfeaturefolders/2.0.3",
       "hashPath": "odetocode.addfeaturefolders.2.0.3.nupkg.sha512"
-    },
-    "System.Diagnostics.Process/4.3.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-J0wOX07+QASQblsfxmIMFc9Iq7KTXYL3zs2G/Xc704Ylv3NpuVdo6gij6V3PGiptTxqsK0K7CdXenRvKUnkA2g==",
-      "path": "system.diagnostics.process/4.3.0",
-      "hashPath": "system.diagnostics.process.4.3.0.nupkg.sha512"
-    },
-    "System.Net.NetworkInformation/4.3.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-zNVmWVry0pAu7lcrRBhwwU96WUdbsrGL3azyzsbXmVNptae1+Za+UgOe9Z6s8iaWhPn7/l4wQqhC56HZWq7tkg==",
-      "path": "system.net.networkinformation/4.3.0",
-      "hashPath": "system.net.networkinformation.4.3.0.nupkg.sha512"
-    },
-    "System.Net.Sockets/4.3.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-m6icV6TqQOAdgt5N/9I5KNpjom/5NFtkmGseEH+AK/hny8XrytLH3+b5M8zL/Ycg3fhIocFpUMyl/wpFnVRvdw==",
-      "path": "system.net.sockets/4.3.0",
-      "hashPath": "system.net.sockets.4.3.0.nupkg.sha512"
-    },
-    "System.Runtime.Serialization.Json/4.0.2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-+7DIJhnKYgCzUgcLbVTtRQb2l1M0FP549XFlFkQM5lmNiUBl44AfNbx4bz61xA8PzLtlYwfmif4JJJW7MPPnjg==",
-      "path": "system.runtime.serialization.json/4.0.2",
-      "hashPath": "system.runtime.serialization.json.4.0.2.nupkg.sha512"
-    },
-    "System.Threading.Overlapped/4.3.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-m3HQ2dPiX/DSTpf+yJt8B0c+SRvzfqAJKx+QDWi+VLhz8svLT23MVjEOHPF/KiSLeArKU/iHescrbLd3yVgyNg==",
-      "path": "system.threading.overlapped/4.3.0",
-      "hashPath": "system.threading.overlapped.4.3.0.nupkg.sha512"
-    },
-    "System.Threading.ThreadPool/4.3.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-k/+g4b7vjdd4aix83sTgC9VG6oXYKAktSfNIJUNGxPEj7ryEOfzHHhfnmsZvjxawwcD9HyWXKCXmPjX8U4zeSw==",
-      "path": "system.threading.threadpool/4.3.0",
-      "hashPath": "system.threading.threadpool.4.3.0.nupkg.sha512"
     },
     "Microsoft.AspNet.WebApi.Client/5.2.6": {
       "type": "package",
@@ -5048,13 +4585,6 @@
       "sha512": "sha512-vduxuHEqRgRrTE8wYG8Wxj/+6wwzddOmZzjKZx6rFMc/91aUBxI5etAFYxesoNaIja5NpgSTcnk6cN8BeYXf9A==",
       "path": "microsoft.win32.registry/4.5.0",
       "hashPath": "microsoft.win32.registry.4.5.0.nupkg.sha512"
-    },
-    "Newtonsoft.Json/11.0.2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-IvJe1pj7JHEsP8B8J8DwlMEx8UInrs/x+9oVY+oCD13jpLu4JbJU2WCIsMRn5C4yW9+DgkaO8uiVE5VHKjpmdQ==",
-      "path": "newtonsoft.json/11.0.2",
-      "hashPath": "newtonsoft.json.11.0.2.nupkg.sha512"
     },
     "Newtonsoft.Json.Bson/1.0.1": {
       "type": "package",

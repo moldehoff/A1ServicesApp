@@ -2,6 +2,7 @@
 using A1ServicesApp.Data.Constants.ServiceTitanApiFilters;
 using A1ServicesApp.Features.Jobs.Models;
 using A1ServicesApp.Features.Jobs.Queries;
+using A1ServicesApp.Features.Services.Airtable.Commands;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -30,7 +31,7 @@ namespace A1ServicesApp.Features.InvoiceValidation
             {
                 ApiKey = "0a947558-f14f-4823-b948-e52533c45684",
                 CompletedBefore = new FilterCompletedBefore() { FilterValue = todaysDate.AddDays(1) },
-                CompletedAfter = new FilterCompletedAfter() { FilterValue = todaysDate.AddDays(-1) }
+                CompletedAfter = new FilterCompletedAfter() { FilterValue = todaysDate.AddDays(0) }
             };
 
             var getJobsFromST = _mediator.Send(new GetJobsFromServiceTitanQuery(queryStringModel)).Result;
@@ -56,6 +57,11 @@ namespace A1ServicesApp.Features.InvoiceValidation
             foreach (var i in invoicesWithErrors)
             {
                 errorReports.AddRange(i.InvoiceErrors);
+                foreach (var e in i.InvoiceErrors)
+                {
+                    _mediator.Send(new AddInvoiceExceptionRecordToAirtableCommand() { InvoiceError = e });
+                }
+                
             }
 
             return Ok(errorReports);
