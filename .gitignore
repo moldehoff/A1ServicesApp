@@ -4,3 +4,5 @@ A1ServicesApp/obj/
 A1ServicesApp/.vscode/
 **launchSettings.json
 **/launchSettings.json
+**.pubxml
+**.pubxml.user
